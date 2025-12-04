@@ -12,92 +12,294 @@ from PyQt6 import QtCore, QtGui, QtWidgets
 class Ui_windowTitle(object):
     def setupUi(self, windowTitle):
         windowTitle.setObjectName("windowTitle")
-        windowTitle.resize(569, 711)
+        windowTitle.resize(542, 737)
         self.gridLayout_2 = QtWidgets.QGridLayout(windowTitle)
         self.gridLayout_2.setObjectName("gridLayout_2")
         self.widget = QtWidgets.QWidget(parent=windowTitle)
         self.widget.setObjectName("widget")
         self.gridLayout_2.addWidget(self.widget, 28, 0, 1, 1)
         self.label_2 = QtWidgets.QLabel(parent=windowTitle)
+        font = QtGui.QFont()
+        font.setFamily("Times New Roman")
+        font.setPointSize(11)
+        self.label_2.setFont(font)
         self.label_2.setObjectName("label_2")
         self.gridLayout_2.addWidget(self.label_2, 1, 0, 1, 1)
         self.label = QtWidgets.QLabel(parent=windowTitle)
+        font = QtGui.QFont()
+        font.setFamily("Times New Roman")
+        font.setPointSize(11)
+        self.label.setFont(font)
         self.label.setObjectName("label")
         self.gridLayout_2.addWidget(self.label, 5, 0, 1, 1)
         self.label_4 = QtWidgets.QLabel(parent=windowTitle)
+        font = QtGui.QFont()
+        font.setFamily("Times New Roman")
+        font.setPointSize(11)
+        self.label_4.setFont(font)
         self.label_4.setObjectName("label_4")
         self.gridLayout_2.addWidget(self.label_4, 10, 0, 1, 1)
         self.label_5 = QtWidgets.QLabel(parent=windowTitle)
+        font = QtGui.QFont()
+        font.setFamily("Times New Roman")
+        font.setPointSize(11)
+        self.label_5.setFont(font)
         self.label_5.setObjectName("label_5")
         self.gridLayout_2.addWidget(self.label_5, 12, 0, 1, 1)
-        self.comboBox = QtWidgets.QComboBox(parent=windowTitle)
-        self.comboBox.setObjectName("comboBox")
-        self.gridLayout_2.addWidget(self.comboBox, 13, 0, 1, 1)
-        self.pushButton = QtWidgets.QPushButton(parent=windowTitle)
-        self.pushButton.setObjectName("pushButton")
-        self.gridLayout_2.addWidget(self.pushButton, 9, 0, 1, 1)
-        self.lineEdit = QtWidgets.QLineEdit(parent=windowTitle)
-        self.lineEdit.setReadOnly(False)
-        self.lineEdit.setObjectName("lineEdit")
-        self.gridLayout_2.addWidget(self.lineEdit, 2, 0, 1, 1)
-        self.label_3 = QtWidgets.QLabel(parent=windowTitle)
-        self.label_3.setMaximumSize(QtCore.QSize(70, 70))
-        self.label_3.setText("")
-        self.label_3.setPixmap(QtGui.QPixmap("../import/picture.png"))
-        self.label_3.setScaledContents(True)
-        self.label_3.setObjectName("label_3")
-        self.gridLayout_2.addWidget(self.label_3, 6, 0, 1, 1)
-        self.lineEdit_2 = QtWidgets.QLineEdit(parent=windowTitle)
-        self.lineEdit_2.setPlaceholderText("")
-        self.lineEdit_2.setObjectName("lineEdit_2")
-        self.gridLayout_2.addWidget(self.lineEdit_2, 11, 0, 1, 1)
+        self.category_input = QtWidgets.QComboBox(parent=windowTitle)
+        font = QtGui.QFont()
+        font.setFamily("Times New Roman")
+        font.setPointSize(10)
+        self.category_input.setFont(font)
+        self.category_input.setStyleSheet("#category_input {\n"
+"    border: 1px solid black;\n"
+"}\n"
+"\n"
+"#category_input:hover {\n"
+"    border-color: #00FA9A;\n"
+"}")
+        self.category_input.setObjectName("category_input")
+        self.category_input.addItem("")
+        self.category_input.addItem("")
+        self.gridLayout_2.addWidget(self.category_input, 13, 0, 1, 1)
+        self.download_photo = QtWidgets.QPushButton(parent=windowTitle)
+        self.download_photo.setMinimumSize(QtCore.QSize(0, 20))
+        font = QtGui.QFont()
+        font.setFamily("Times New Roman")
+        font.setPointSize(11)
+        self.download_photo.setFont(font)
+        self.download_photo.setStyleSheet("#download_photo {\n"
+"    background-color: #7FFF00;\n"
+"    border: 1px solid black;\n"
+"}\n"
+"\n"
+"#download_photo:hover {\n"
+"    background-color: #00FA9A;\n"
+"}")
+        self.download_photo.setObjectName("download_photo")
+        self.gridLayout_2.addWidget(self.download_photo, 9, 0, 1, 1)
+        self.articul_input = QtWidgets.QLineEdit(parent=windowTitle)
+        font = QtGui.QFont()
+        font.setFamily("Times New Roman")
+        font.setPointSize(10)
+        self.articul_input.setFont(font)
+        self.articul_input.setStyleSheet("#articul_input {\n"
+"    border: 1px solid black;\n"
+"}\n"
+"\n"
+"#articul_input:focus {\n"
+"    border-color: #00FA9A;\n"
+"}")
+        self.articul_input.setReadOnly(False)
+        self.articul_input.setObjectName("articul_input")
+        self.gridLayout_2.addWidget(self.articul_input, 2, 0, 1, 1)
+        self.photo = QtWidgets.QLabel(parent=windowTitle)
+        self.photo.setMaximumSize(QtCore.QSize(70, 70))
+        self.photo.setText("")
+        self.photo.setPixmap(QtGui.QPixmap("../import/picture.png"))
+        self.photo.setScaledContents(True)
+        self.photo.setObjectName("photo")
+        self.gridLayout_2.addWidget(self.photo, 6, 0, 1, 1)
+        self.name_input = QtWidgets.QLineEdit(parent=windowTitle)
+        font = QtGui.QFont()
+        font.setFamily("Times New Roman")
+        font.setPointSize(10)
+        self.name_input.setFont(font)
+        self.name_input.setStyleSheet("#name_input {\n"
+"    border: 1px solid black;\n"
+"}\n"
+"\n"
+"#name_input:focus {\n"
+"    border-color: #00FA9A;\n"
+"}")
+        self.name_input.setPlaceholderText("")
+        self.name_input.setObjectName("name_input")
+        self.gridLayout_2.addWidget(self.name_input, 11, 0, 1, 1)
         self.label_6 = QtWidgets.QLabel(parent=windowTitle)
+        font = QtGui.QFont()
+        font.setFamily("Times New Roman")
+        font.setPointSize(11)
+        self.label_6.setFont(font)
         self.label_6.setObjectName("label_6")
         self.gridLayout_2.addWidget(self.label_6, 14, 0, 1, 1)
-        self.textEdit = QtWidgets.QTextEdit(parent=windowTitle)
-        self.textEdit.setObjectName("textEdit")
-        self.gridLayout_2.addWidget(self.textEdit, 15, 0, 1, 1)
+        self.description_input = QtWidgets.QTextEdit(parent=windowTitle)
+        font = QtGui.QFont()
+        font.setFamily("Times New Roman")
+        font.setPointSize(10)
+        self.description_input.setFont(font)
+        self.description_input.setStyleSheet("#description_input {\n"
+"    border: 1px solid black;\n"
+"}\n"
+"\n"
+"#description_input:focus {\n"
+"    border-color: #00FA9A;\n"
+"}")
+        self.description_input.setObjectName("description_input")
+        self.gridLayout_2.addWidget(self.description_input, 15, 0, 1, 1)
         self.label_7 = QtWidgets.QLabel(parent=windowTitle)
+        font = QtGui.QFont()
+        font.setFamily("Times New Roman")
+        font.setPointSize(11)
+        self.label_7.setFont(font)
         self.label_7.setObjectName("label_7")
         self.gridLayout_2.addWidget(self.label_7, 16, 0, 1, 1)
-        self.comboBox_2 = QtWidgets.QComboBox(parent=windowTitle)
-        self.comboBox_2.setObjectName("comboBox_2")
-        self.gridLayout_2.addWidget(self.comboBox_2, 17, 0, 1, 1)
+        self.maker_input = QtWidgets.QComboBox(parent=windowTitle)
+        font = QtGui.QFont()
+        font.setFamily("Times New Roman")
+        font.setPointSize(10)
+        self.maker_input.setFont(font)
+        self.maker_input.setStyleSheet("#maker_input {\n"
+"    border: 1px solid black;\n"
+"}\n"
+"\n"
+"#maker_input:hover {\n"
+"    border-color: #00FA9A;\n"
+"}")
+        self.maker_input.setObjectName("maker_input")
+        self.maker_input.addItem("")
+        self.maker_input.addItem("")
+        self.maker_input.addItem("")
+        self.maker_input.addItem("")
+        self.maker_input.addItem("")
+        self.maker_input.addItem("")
+        self.maker_input.addItem("")
+        self.gridLayout_2.addWidget(self.maker_input, 17, 0, 1, 1)
         self.label_8 = QtWidgets.QLabel(parent=windowTitle)
+        font = QtGui.QFont()
+        font.setFamily("Times New Roman")
+        font.setPointSize(11)
+        self.label_8.setFont(font)
         self.label_8.setObjectName("label_8")
         self.gridLayout_2.addWidget(self.label_8, 18, 0, 1, 1)
-        self.lineEdit_3 = QtWidgets.QLineEdit(parent=windowTitle)
-        self.lineEdit_3.setObjectName("lineEdit_3")
-        self.gridLayout_2.addWidget(self.lineEdit_3, 19, 0, 1, 1)
+        self.provider_input = QtWidgets.QLineEdit(parent=windowTitle)
+        font = QtGui.QFont()
+        font.setFamily("Times New Roman")
+        font.setPointSize(10)
+        self.provider_input.setFont(font)
+        self.provider_input.setStyleSheet("#provider_input {\n"
+"    border: 1px solid black;\n"
+"}\n"
+"\n"
+"#provider_input:focus {\n"
+"    border-color: #00FA9A;\n"
+"}")
+        self.provider_input.setObjectName("provider_input")
+        self.gridLayout_2.addWidget(self.provider_input, 19, 0, 1, 1)
         self.label_11 = QtWidgets.QLabel(parent=windowTitle)
+        font = QtGui.QFont()
+        font.setFamily("Times New Roman")
+        font.setPointSize(11)
+        self.label_11.setFont(font)
         self.label_11.setObjectName("label_11")
         self.gridLayout_2.addWidget(self.label_11, 24, 0, 1, 1)
-        self.spinBox_2 = QtWidgets.QSpinBox(parent=windowTitle)
-        self.spinBox_2.setMaximum(100)
-        self.spinBox_2.setObjectName("spinBox_2")
-        self.gridLayout_2.addWidget(self.spinBox_2, 27, 0, 1, 1)
-        self.lineEdit_4 = QtWidgets.QLineEdit(parent=windowTitle)
-        self.lineEdit_4.setObjectName("lineEdit_4")
-        self.gridLayout_2.addWidget(self.lineEdit_4, 23, 0, 1, 1)
-        self.pushButton_3 = QtWidgets.QPushButton(parent=windowTitle)
-        self.pushButton_3.setObjectName("pushButton_3")
-        self.gridLayout_2.addWidget(self.pushButton_3, 30, 0, 1, 1)
+        self.discount_input = QtWidgets.QSpinBox(parent=windowTitle)
+        font = QtGui.QFont()
+        font.setFamily("Times New Roman")
+        font.setPointSize(10)
+        self.discount_input.setFont(font)
+        self.discount_input.setStyleSheet("#discount_input {\n"
+"    border: 1px solid black;\n"
+"}\n"
+"\n"
+"#discount_input:focus {\n"
+"    border-color: #00FA9A;\n"
+"}")
+        self.discount_input.setMaximum(100)
+        self.discount_input.setObjectName("discount_input")
+        self.gridLayout_2.addWidget(self.discount_input, 27, 0, 1, 1)
+        self.metric_input = QtWidgets.QLineEdit(parent=windowTitle)
+        font = QtGui.QFont()
+        font.setFamily("Times New Roman")
+        font.setPointSize(10)
+        self.metric_input.setFont(font)
+        self.metric_input.setStyleSheet("#metric_input {\n"
+"    border: 1px solid black;\n"
+"}\n"
+"\n"
+"#metric_input:focus {\n"
+"    border-color: #00FA9A;\n"
+"}")
+        self.metric_input.setObjectName("metric_input")
+        self.gridLayout_2.addWidget(self.metric_input, 23, 0, 1, 1)
+        self.cancel_button = QtWidgets.QPushButton(parent=windowTitle)
+        self.cancel_button.setMinimumSize(QtCore.QSize(0, 20))
+        font = QtGui.QFont()
+        font.setFamily("Times New Roman")
+        font.setPointSize(11)
+        self.cancel_button.setFont(font)
+        self.cancel_button.setStyleSheet("#cancel_button {\n"
+"    background-color: #7FFF00;\n"
+"    border: 1px solid black;\n"
+"}\n"
+"\n"
+"#cancel_button:hover {\n"
+"    background-color: #00FA9A;\n"
+"}")
+        self.cancel_button.setObjectName("cancel_button")
+        self.gridLayout_2.addWidget(self.cancel_button, 30, 0, 1, 1)
         self.label_9 = QtWidgets.QLabel(parent=windowTitle)
+        font = QtGui.QFont()
+        font.setFamily("Times New Roman")
+        font.setPointSize(11)
+        self.label_9.setFont(font)
         self.label_9.setObjectName("label_9")
         self.gridLayout_2.addWidget(self.label_9, 20, 0, 1, 1)
-        self.doubleSpinBox = QtWidgets.QDoubleSpinBox(parent=windowTitle)
-        self.doubleSpinBox.setObjectName("doubleSpinBox")
-        self.gridLayout_2.addWidget(self.doubleSpinBox, 21, 0, 1, 1)
-        self.pushButton_2 = QtWidgets.QPushButton(parent=windowTitle)
-        self.pushButton_2.setObjectName("pushButton_2")
-        self.gridLayout_2.addWidget(self.pushButton_2, 29, 0, 1, 1)
-        self.spinBox = QtWidgets.QSpinBox(parent=windowTitle)
-        self.spinBox.setObjectName("spinBox")
-        self.gridLayout_2.addWidget(self.spinBox, 25, 0, 1, 1)
+        self.price_input = QtWidgets.QDoubleSpinBox(parent=windowTitle)
+        font = QtGui.QFont()
+        font.setFamily("Times New Roman")
+        font.setPointSize(10)
+        self.price_input.setFont(font)
+        self.price_input.setStyleSheet("#price_input {\n"
+"    border: 1px solid black;\n"
+"}\n"
+"\n"
+"#price_input:focus {\n"
+"    border-color: #00FA9A;\n"
+"}")
+        self.price_input.setObjectName("price_input")
+        self.gridLayout_2.addWidget(self.price_input, 21, 0, 1, 1)
+        self.save_button = QtWidgets.QPushButton(parent=windowTitle)
+        self.save_button.setMinimumSize(QtCore.QSize(0, 20))
+        font = QtGui.QFont()
+        font.setFamily("Times New Roman")
+        font.setPointSize(11)
+        self.save_button.setFont(font)
+        self.save_button.setStyleSheet("#save_button {\n"
+"    background-color: #7FFF00;\n"
+"    border: 1px solid black;\n"
+"}\n"
+"\n"
+"#save_button:hover {\n"
+"    background-color: #00FA9A;\n"
+"}")
+        self.save_button.setObjectName("save_button")
+        self.gridLayout_2.addWidget(self.save_button, 29, 0, 1, 1)
+        self.quantity_input = QtWidgets.QSpinBox(parent=windowTitle)
+        font = QtGui.QFont()
+        font.setFamily("Times New Roman")
+        font.setPointSize(10)
+        self.quantity_input.setFont(font)
+        self.quantity_input.setStyleSheet("#quantity_input {\n"
+"    border: 1px solid black;\n"
+"}\n"
+"\n"
+"#quantity_input:focus {\n"
+"    border-color: #00FA9A;\n"
+"}")
+        self.quantity_input.setObjectName("quantity_input")
+        self.gridLayout_2.addWidget(self.quantity_input, 25, 0, 1, 1)
         self.label_10 = QtWidgets.QLabel(parent=windowTitle)
+        font = QtGui.QFont()
+        font.setFamily("Times New Roman")
+        font.setPointSize(11)
+        self.label_10.setFont(font)
         self.label_10.setObjectName("label_10")
         self.gridLayout_2.addWidget(self.label_10, 22, 0, 1, 1)
         self.label_12 = QtWidgets.QLabel(parent=windowTitle)
+        font = QtGui.QFont()
+        font.setFamily("Times New Roman")
+        font.setPointSize(11)
+        self.label_12.setFont(font)
         self.label_12.setObjectName("label_12")
         self.gridLayout_2.addWidget(self.label_12, 26, 0, 1, 1)
 
@@ -111,14 +313,23 @@ class Ui_windowTitle(object):
         self.label.setText(_translate("windowTitle", "Фото:"))
         self.label_4.setText(_translate("windowTitle", "Наименование:"))
         self.label_5.setText(_translate("windowTitle", "Категория:"))
-        self.pushButton.setText(_translate("windowTitle", "Загрузить фото"))
+        self.category_input.setItemText(0, _translate("windowTitle", "Женская обувь"))
+        self.category_input.setItemText(1, _translate("windowTitle", "Мужская обувь"))
+        self.download_photo.setText(_translate("windowTitle", "Загрузить фото"))
         self.label_6.setText(_translate("windowTitle", "Описание:"))
         self.label_7.setText(_translate("windowTitle", "Производитель:"))
+        self.maker_input.setItemText(0, _translate("windowTitle", "Kari"))
+        self.maker_input.setItemText(1, _translate("windowTitle", "Marco Tozzi"))
+        self.maker_input.setItemText(2, _translate("windowTitle", "Рос"))
+        self.maker_input.setItemText(3, _translate("windowTitle", "Rieker"))
+        self.maker_input.setItemText(4, _translate("windowTitle", "Alessio Nesca"))
+        self.maker_input.setItemText(5, _translate("windowTitle", "CROSBY"))
+        self.maker_input.setItemText(6, _translate("windowTitle", "New Item"))
         self.label_8.setText(_translate("windowTitle", "Поставщик:"))
         self.label_11.setText(_translate("windowTitle", "Количество:"))
-        self.pushButton_3.setText(_translate("windowTitle", "Отмена"))
+        self.cancel_button.setText(_translate("windowTitle", "Отмена"))
         self.label_9.setText(_translate("windowTitle", "Цена"))
-        self.pushButton_2.setText(_translate("windowTitle", "Сохранить"))
+        self.save_button.setText(_translate("windowTitle", "Сохранить"))
         self.label_10.setText(_translate("windowTitle", "Ед. измерения:"))
         self.label_12.setText(_translate("windowTitle", "Скидка (%):"))
 

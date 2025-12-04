@@ -12,69 +12,115 @@ from PyQt6 import QtCore, QtGui, QtWidgets
 class Ui_Login(object):
     def setupUi(self, Login):
         Login.setObjectName("Login")
-        Login.resize(491, 503)
+        Login.resize(452, 507)
         Login.setMinimumSize(QtCore.QSize(100, 100))
         self.centralwidget = QtWidgets.QWidget(parent=Login)
         self.centralwidget.setObjectName("centralwidget")
         self.label = QtWidgets.QLabel(parent=self.centralwidget)
-        self.label.setGeometry(QtCore.QRect(140, 20, 200, 161))
+        self.label.setGeometry(QtCore.QRect(140, 20, 171, 141))
+        self.label.setStyleSheet("")
         self.label.setText("")
         self.label.setPixmap(QtGui.QPixmap("../import/Icon.JPG"))
         self.label.setScaledContents(True)
         self.label.setObjectName("label")
-        self.verticalLayoutWidget = QtWidgets.QWidget(parent=self.centralwidget)
-        self.verticalLayoutWidget.setGeometry(QtCore.QRect(80, 190, 321, 131))
-        self.verticalLayoutWidget.setObjectName("verticalLayoutWidget")
-        self.verticalLayout = QtWidgets.QVBoxLayout(self.verticalLayoutWidget)
-        self.verticalLayout.setContentsMargins(0, 0, 0, 0)
+        self.label_2 = QtWidgets.QLabel(parent=self.centralwidget)
+        self.label_2.setGeometry(QtCore.QRect(200, 180, 61, 31))
+        font = QtGui.QFont()
+        font.setFamily("Times New Roman")
+        font.setPointSize(20)
+        self.label_2.setFont(font)
+        self.label_2.setObjectName("label_2")
+        self.verticalLayoutWidget_3 = QtWidgets.QWidget(parent=self.centralwidget)
+        self.verticalLayoutWidget_3.setGeometry(QtCore.QRect(70, 220, 323, 166))
+        self.verticalLayoutWidget_3.setObjectName("verticalLayoutWidget_3")
+        self.verticalLayout_3 = QtWidgets.QVBoxLayout(self.verticalLayoutWidget_3)
+        self.verticalLayout_3.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_3.setObjectName("verticalLayout_3")
+        self.verticalLayout = QtWidgets.QVBoxLayout()
         self.verticalLayout.setObjectName("verticalLayout")
-        self.label_login = QtWidgets.QLabel(parent=self.verticalLayoutWidget)
+        self.login_input = QtWidgets.QLineEdit(parent=self.verticalLayoutWidget_3)
+        self.login_input.setMinimumSize(QtCore.QSize(319, 30))
         font = QtGui.QFont()
         font.setFamily("Times New Roman")
         font.setPointSize(12)
-        self.label_login.setFont(font)
-        self.label_login.setObjectName("label_login")
-        self.verticalLayout.addWidget(self.label_login)
-        self.login_input = QtWidgets.QLineEdit(parent=self.verticalLayoutWidget)
+        self.login_input.setFont(font)
+        self.login_input.setStyleSheet("#login_input {\n"
+"    border: 1px solid black;\n"
+"}\n"
+"\n"
+"#login_input:focus {\n"
+"    border-color: #00FA9A;\n"
+"}")
         self.login_input.setInputMask("")
         self.login_input.setText("")
         self.login_input.setObjectName("login_input")
         self.verticalLayout.addWidget(self.login_input)
-        self.label_password = QtWidgets.QLabel(parent=self.verticalLayoutWidget)
+        self.password_input = QtWidgets.QLineEdit(parent=self.verticalLayoutWidget_3)
+        self.password_input.setMinimumSize(QtCore.QSize(319, 30))
         font = QtGui.QFont()
         font.setFamily("Times New Roman")
         font.setPointSize(12)
-        self.label_password.setFont(font)
-        self.label_password.setObjectName("label_password")
-        self.verticalLayout.addWidget(self.label_password)
-        self.password_input = QtWidgets.QLineEdit(parent=self.verticalLayoutWidget)
+        self.password_input.setFont(font)
+        self.password_input.setStyleSheet("#password_input {\n"
+"    border: 1px solid black;\n"
+"}\n"
+"\n"
+"#password_input:focus {\n"
+"    border-color: #00FA9A;\n"
+"}")
         self.password_input.setText("")
         self.password_input.setEchoMode(QtWidgets.QLineEdit.EchoMode.Password)
         self.password_input.setObjectName("password_input")
         self.verticalLayout.addWidget(self.password_input)
-        self.verticalLayoutWidget_2 = QtWidgets.QWidget(parent=self.centralwidget)
-        self.verticalLayoutWidget_2.setGeometry(QtCore.QRect(80, 340, 321, 81))
-        self.verticalLayoutWidget_2.setObjectName("verticalLayoutWidget_2")
-        self.verticalLayout_2 = QtWidgets.QVBoxLayout(self.verticalLayoutWidget_2)
-        self.verticalLayout_2.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_3.addLayout(self.verticalLayout)
+        self.verticalLayout_2 = QtWidgets.QVBoxLayout()
         self.verticalLayout_2.setObjectName("verticalLayout_2")
-        self.login_button = QtWidgets.QPushButton(parent=self.verticalLayoutWidget_2)
+        self.login_button = QtWidgets.QPushButton(parent=self.verticalLayoutWidget_3)
         font = QtGui.QFont()
         font.setFamily("Times New Roman")
         font.setPointSize(12)
         self.login_button.setFont(font)
+        self.login_button.setStyleSheet("#login_button {\n"
+"    background-color: #7FFF00;\n"
+"    border: 1px solid black;\n"
+"}\n"
+"\n"
+"#login_button:hover {\n"
+"    background-color: #00FA9A;\n"
+"}")
         self.login_button.setObjectName("login_button")
         self.verticalLayout_2.addWidget(self.login_button)
-        self.pushButton_2 = QtWidgets.QPushButton(parent=self.verticalLayoutWidget_2)
+        spacerItem = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Expanding)
+        self.verticalLayout_2.addItem(spacerItem)
+        self.label_3 = QtWidgets.QLabel(parent=self.verticalLayoutWidget_3)
+        font = QtGui.QFont()
+        font.setFamily("Times New Roman")
+        font.setPointSize(7)
+        self.label_3.setFont(font)
+        self.label_3.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
+        self.label_3.setObjectName("label_3")
+        self.verticalLayout_2.addWidget(self.label_3)
+        spacerItem1 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Expanding)
+        self.verticalLayout_2.addItem(spacerItem1)
+        self.guest_button = QtWidgets.QPushButton(parent=self.verticalLayoutWidget_3)
         font = QtGui.QFont()
         font.setFamily("Times New Roman")
         font.setPointSize(12)
-        self.pushButton_2.setFont(font)
-        self.pushButton_2.setObjectName("pushButton_2")
-        self.verticalLayout_2.addWidget(self.pushButton_2)
+        self.guest_button.setFont(font)
+        self.guest_button.setStyleSheet("#guest_button {\n"
+"    background-color: #7FFF00;\n"
+"    border: 1px solid black;\n"
+"}\n"
+"\n"
+"#guest_button:hover {\n"
+"    background-color: #00FA9A;\n"
+"}")
+        self.guest_button.setObjectName("guest_button")
+        self.verticalLayout_2.addWidget(self.guest_button)
+        self.verticalLayout_3.addLayout(self.verticalLayout_2)
         Login.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(parent=Login)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 491, 21))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 452, 21))
         self.menubar.setObjectName("menubar")
         Login.setMenuBar(self.menubar)
         self.statusbar = QtWidgets.QStatusBar(parent=Login)
@@ -87,12 +133,12 @@ class Ui_Login(object):
     def retranslateUi(self, Login):
         _translate = QtCore.QCoreApplication.translate
         Login.setWindowTitle(_translate("Login", "MainWindow"))
-        self.label_login.setText(_translate("Login", "Логин"))
+        self.label_2.setText(_translate("Login", "Вход"))
         self.login_input.setPlaceholderText(_translate("Login", "Введите логин"))
-        self.label_password.setText(_translate("Login", "Пароль"))
         self.password_input.setPlaceholderText(_translate("Login", "Введите пароль"))
         self.login_button.setText(_translate("Login", "Войти"))
-        self.pushButton_2.setText(_translate("Login", "Войти как гость"))
+        self.label_3.setText(_translate("Login", "ИЛИ"))
+        self.guest_button.setText(_translate("Login", "Войти как гость"))
 
 
 if __name__ == "__main__":

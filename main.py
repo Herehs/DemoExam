@@ -8,24 +8,31 @@ from presentation.login_window import Ui_Login
 from presentation.products import Ui_List_of_products
 
 
+
 class LoginWindow(QMainWindow, Ui_Login):
     def __init__(self, manager):
         super().__init__()
         self.manager = manager
         self.setupUi(self)
+        self.connect_signals()
+        self.manager.resize(452, 507)
 
-        def connect_signals(self):
-            self.login_button.clicked.connect(self.handle_login)
+    def connect_signals(self):
+        self.login_button.clicked.connect(self.handle_login)
 
-        def handle_login(self):
-            self.manager.goto_window("MainWindow")
-            print("--- 🔴 Функция handle_login вызвана! ---")
+    def handle_login(self):
+        print("--- 🔴 Функция handle_login вызвана! ---")
+        self.manager.goto_window("MainWindow")
+        self.manager.resize(1028, 599)
+
 
 class ProductListWindow(QMainWindow, Ui_List_of_products):
     def __init__(self, manager):
         super().__init__()
         self.manager = manager
         self.setupUi(self)
+
+
 
 class WindowManager(QMainWindow):
     def __init__(self):
