@@ -68,13 +68,18 @@ if __name__ == '__main__':
     try:
         controller.connect()
 
-        select_query = "SELECT * FROM Users;"
+        select_query = """
+                        SELECT user_id, user_role 
+                        FROM Users 
+                        WHERE user_login = 'l' AND user_password = 'l'
+        """
         results = controller.execute_query(select_query, fetch=True)
         if results:
             print("\nПример выборки данных из Orders:")
             for row in results:
                 print(row)
-
+        else:
+            print("ne robit")
     except Exception as e:
         print(f"\nРабота программы завершена с ошибкой: {e}")
     finally:

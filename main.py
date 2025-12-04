@@ -6,7 +6,7 @@ from PyQt6.QtWidgets import (
 )
 from presentation.login_window import Ui_Login
 from presentation.products import Ui_List_of_products
-
+from database.database import DBController
 
 
 class LoginWindow(QMainWindow, Ui_Login):
@@ -19,11 +19,58 @@ class LoginWindow(QMainWindow, Ui_Login):
 
     def connect_signals(self):
         self.login_button.clicked.connect(self.handle_login)
+        self.guest_button.clicked.connect(self.handle_login_as_guest)
 
     def handle_login(self):
+
+        def _authenticate(user, psw):
+            query = """
+                            SELECT user_id, user_role 
+                            FROM Users 
+                            WHERE user_login = %s AND user_password = %s
+                        """
+            params = (user, psw)
+
+            try:
+                result = controller.execute_query(query, params, fetch=True)
+
+                if result:
+                    user_id, user_role = result[0]
+                    print(f"Аутентификация успешна для пользователя: ID={user_id}, Роль='{user_role}'")
+                    return True
+                else:
+                    print("Ошибка аутентификации: неверный логин или пароль.")
+                    return False
+
+            except Exception as e:
+                print(f"Ошибка при аутентификации: {e}")
+                return False
+
+        def _process_credentials(username, password):
+            clean_username = username.strip()
+            if not clean_username:
+                print("Ошибка: Поле логина не может быть пустым.")
+                return
+            if not password:
+                print("Ошибка: Поле пароля не может быть пустым.")
+                return
+            print(f"Пользователь: {clean_username} пытается войти.")
+            if _authenticate(clean_username, password):
+                self.manager.goto_window("MainWindow")
+                self.manager.resize(1028, 599)
+            else:
+                print("Ошибка: Неверный логин или пароль.")
+
         print("--- 🔴 Функция handle_login вызвана! ---")
+
+        username = self.login_input.text()
+        password = self.password_input.text()
+        _process_credentials(username, password)
+
+    def handle_login_as_guest(self):
         self.manager.goto_window("MainWindow")
         self.manager.resize(1028, 599)
+
 
 
 class ProductListWindow(QMainWindow, Ui_List_of_products):
@@ -75,6 +122,20 @@ class WindowManager(QMainWindow):
 
 
 if __name__ == "__main__":
+    """
+    Подключение БД
+    """
+    DB_NAME = "shoesdb"
+    DB_USER = "me"
+    DB_PASS = "1488"
+    DB_HOST = "localhost"
+    DB_PORT = "5432"
+
+    controller = DBController(DB_NAME, DB_USER, DB_PASS, DB_HOST, DB_PORT)
+
+    """
+    Отрисовка UI
+    """
     app = QApplication(sys.argv)
     manager = WindowManager()
     manager.show()
