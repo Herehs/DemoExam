@@ -107,7 +107,7 @@ class Ui_Dialog(object):
         self.verticalLayout_2 = QtWidgets.QVBoxLayout(self.widget_order_name)
         self.verticalLayout_2.setObjectName("verticalLayout_2")
         self.verticalLayout_4 = QtWidgets.QVBoxLayout()
-        self.verticalLayout_4.setObjectName("verticalLayout_4")
+        self.verticalLayout_4.setObjectName("scrollLayout")
         self.label_art = QtWidgets.QLabel(parent=self.widget_order_name)
         font = QtGui.QFont()
         font.setFamily("Times New Roman")

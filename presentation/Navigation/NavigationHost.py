@@ -1,17 +1,17 @@
-from PyQt6.QtWidgets import QMainWindow, QStackedWidget
+from PyQt6.QtWidgets import QMainWindow, QStackedWidget, QWidget
 
 from presentation.Login_UI.login_window import Ui_Login
 from presentation.Product_list_UI.products import Ui_List_of_products
 
 
 class LoginWindow(QMainWindow, Ui_Login):
-    def __init__(self, manager):
+    def __init__(self, manager, db):
         super().__init__()
         self.manager = manager
         self.setupUi(self)
         self.connect_signals()
         self.manager.resize(452, 507)
-
+        self.db = db
 
     def connect_signals(self):
         self.login_button.clicked.connect(self.handle_login)
@@ -28,7 +28,7 @@ class LoginWindow(QMainWindow, Ui_Login):
             params = (user, psw)
 
             try:
-                result = controller.execute_query(query, params, fetch=True)
+                result = self.db.execute_query(query, params, fetch=True)
 
                 if result:
                     user_id, user_role = result[0]
@@ -67,20 +67,19 @@ class LoginWindow(QMainWindow, Ui_Login):
         self.manager.goto_window("MainWindow")
         self.manager.resize(1028, 599)
 
-
-
-class ProductListWindow(QMainWindow, Ui_List_of_products):
-    def __init__(self, manager):
+class List_of_products_screen_UI(QMainWindow, Ui_List_of_products):
+    def __init__(self, db):
         super().__init__()
-        self.manager = manager
-        self.setupUi(self)
+        self.db = db
+        self.query_from_DB()
+        self.setupUi(self, db)
 
 
 
 class WindowManager(QMainWindow):
-    def __init__(self):
+    def __init__(self, db):
         super().__init__()
-
+        self.db = db
 
 
         self.stack = QStackedWidget()
@@ -92,14 +91,14 @@ class WindowManager(QMainWindow):
         """
         Экран авторизации
         """
-        login_window_instance = LoginWindow(self)
+        login_window_instance = LoginWindow(self, self.db)
         self.stack.addWidget(login_window_instance)
         self.windows["LoginWindow"] = login_window_instance
 
         """
         Экран продуктов
         """
-        product_window_instance = ProductListWindow(self)
+        product_window_instance = List_of_products_screen_UI(self.db)
         self.stack.addWidget(product_window_instance)
         self.windows["MainWindow"] = product_window_instance
 
