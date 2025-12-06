@@ -62,7 +62,7 @@ class WindowManager(QMainWindow):
         """
         Экран продуктов
         """
-        product_window_instance = List_of_products_screen_UI(self.db)
+        product_window_instance = List_of_products_screen_UI(self.db, login_VM= loginVM)
         self.stack.addWidget(product_window_instance)
         self.windows["MainWindow"] = product_window_instance
         self.goto_window("LoginWindow")
