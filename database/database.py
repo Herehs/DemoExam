@@ -1,5 +1,5 @@
 import psycopg
-from psycopg import sql
+
 
 
 class DBController:
