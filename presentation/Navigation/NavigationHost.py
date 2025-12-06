@@ -1,3 +1,4 @@
+from PyQt6 import QtCore
 from PyQt6.QtWidgets import QMainWindow, QStackedWidget, QWidget
 
 from presentation.Login_UI.login_window import Ui_Login
@@ -10,7 +11,6 @@ class LoginWindow(QMainWindow, Ui_Login):
         self.manager = manager
         self.setupUi(self)
         self.connect_signals()
-        self.manager.resize(452, 507)
         self.db = db
 
     def connect_signals(self):
@@ -65,7 +65,7 @@ class LoginWindow(QMainWindow, Ui_Login):
 
     def handle_login_as_guest(self):
         self.manager.goto_window("MainWindow")
-        self.manager.resize(1028, 599)
+
 
 class List_of_products_screen_UI(QMainWindow, Ui_List_of_products):
     def __init__(self, db):
@@ -101,7 +101,6 @@ class WindowManager(QMainWindow):
         product_window_instance = List_of_products_screen_UI(self.db)
         self.stack.addWidget(product_window_instance)
         self.windows["MainWindow"] = product_window_instance
-
         self.goto_window("LoginWindow")
 
     def goto_window(self, name):
@@ -109,6 +108,14 @@ class WindowManager(QMainWindow):
         Метод-контроллер для переключения окон в QStackedWidget.
         """
         # Здесь нет ошибки, так как self.windows уже создан в __init__
+        if name == "LoginWindow":
+            self.setFixedSize(452, 507)
+            self.setWindowTitle("Авторизация")
+        elif name == "MainWindow":
+            self.setFixedSize(1028, 599)
+            self.setWindowTitle("Список товаров")
+
+
         if name in self.windows:
             widget = self.windows[name]
             self.stack.setCurrentWidget(widget)
