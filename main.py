@@ -1,12 +1,13 @@
 import sys
+
+from PyQt6.QtGui import QPalette, QColor
 from PyQt6.QtWidgets import (
-    QApplication, QMainWindow
+    QApplication, QMainWindow, QStyleFactory
 )
 
 from database.database import DBController
 from presentation.Navigation.NavigationHost import WindowManager, LoginWindow
-from repository.UserRepository import UserRepository
-from viewModel.LoginViewmodel import LoginViewModel
+
 
 if __name__ == "__main__":
     """
@@ -19,15 +20,18 @@ if __name__ == "__main__":
     DB_PORT = "5432"
     controller = DBController(DB_NAME, DB_USER, DB_PASS, DB_HOST, DB_PORT)
 
-    user_repo = UserRepository(controller)
-    login_view_model = LoginViewModel(user_repo)
 
-    login_success = login_view_model.login("admin", "12345")
+
     """
     Отрисовка UI
     """
 
     app = QApplication(sys.argv)
-    manager = WindowManager(loginVM= login_view_model, db= controller)
+
+
+    app.setStyle('Fusion')
+    app.setStyleSheet("QWidget {background-color: white; color: black;}")
+
+    manager = WindowManager(db= controller)
     manager.show()
     sys.exit(app.exec())

@@ -7,32 +7,50 @@
 
 
 from PyQt6 import QtCore, QtGui, QtWidgets
+from PyQt6.QtCore import pyqtSignal
 from PyQt6.QtWidgets import QWidget
 
 
 class CardUI(object):
     def setupUi(self, Form):
         Form.setObjectName("Form")
+        Form.resize(957, 300)
         self.widget_7 = QtWidgets.QWidget(parent=Form)
+        self.widget_7.setGeometry(QtCore.QRect(0, 0, 900, 171))
         self.widget_7.setMinimumSize(QtCore.QSize(900, 0))
-
+        self.widget_7.setMaximumSize(QtCore.QSize(900, 300))
         self.widget_7.setStyleSheet("\n"
-"border: 1px solid black;\n"
-"")
+                                    "border: 1px solid black;\n"
+                                    "")
         self.widget_7.setObjectName("widget_7")
         self.horizontalLayout_9 = QtWidgets.QHBoxLayout(self.widget_7)
-        self.horizontalLayout_9.setContentsMargins(0, 0, 0, 0)
+        self.horizontalLayout_9.setContentsMargins(10, 10, 10, 10)
+        self.horizontalLayout_9.setSpacing(10)
         self.horizontalLayout_9.setObjectName("horizontalLayout_9")
-        self.horizontalLayout_11 = QtWidgets.QHBoxLayout()
-        self.horizontalLayout_11.setObjectName("horizontalLayout_11")
         self.photo_10 = QtWidgets.QLabel(parent=self.widget_7)
-        self.photo_10.setMaximumSize(QtCore.QSize(150, 150))
+        self.photo_10.setEnabled(True)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Minimum)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.photo_10.sizePolicy().hasHeightForWidth())
+        self.photo_10.setSizePolicy(sizePolicy)
+        self.photo_10.setMaximumSize(QtCore.QSize(200, 200))
         self.photo_10.setStyleSheet("\n"
-"border: 1px solid black;\n"
-"")
-
-        self.horizontalLayout_11.addWidget(self.photo_10)
+                                    "border: 1px solid black;\n"
+                                    "")
+        self.photo_10.setText("")
+        self.photo_10.setPixmap(QtGui.QPixmap("res/1.jpg"))
+        self.photo_10.setScaledContents(True)
+        self.photo_10.setObjectName("photo_10")
+        self.horizontalLayout_9.addWidget(self.photo_10)
         self.widget_8 = QtWidgets.QWidget(parent=self.widget_7)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Expanding,
+                                           QtWidgets.QSizePolicy.Policy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.widget_8.sizePolicy().hasHeightForWidth())
+        self.widget_8.setSizePolicy(sizePolicy)
+        self.widget_8.setMaximumSize(QtCore.QSize(16777215, 200))
         self.widget_8.setStyleSheet("")
         self.widget_8.setObjectName("widget_8")
         self.verticalLayout_5 = QtWidgets.QVBoxLayout(self.widget_8)
@@ -45,8 +63,8 @@ class CardUI(object):
         font.setPointSize(10)
         self.label_15.setFont(font)
         self.label_15.setStyleSheet("\n"
-"border: 0px solid black;\n"
-"")
+                                    "border: 0px solid black;\n"
+                                    "")
         self.label_15.setObjectName("label_15")
         self.verticalLayout_18.addWidget(self.label_15)
         self.label_27 = QtWidgets.QLabel(parent=self.widget_8)
@@ -55,8 +73,8 @@ class CardUI(object):
         font.setPointSize(10)
         self.label_27.setFont(font)
         self.label_27.setStyleSheet("\n"
-"border: 0px solid black;\n"
-"")
+                                    "border: 0px solid black;\n"
+                                    "")
         self.label_27.setObjectName("label_27")
         self.verticalLayout_18.addWidget(self.label_27)
         self.label_28 = QtWidgets.QLabel(parent=self.widget_8)
@@ -65,8 +83,8 @@ class CardUI(object):
         font.setPointSize(10)
         self.label_28.setFont(font)
         self.label_28.setStyleSheet("\n"
-"border: 0px solid black;\n"
-"")
+                                    "border: 0px solid black;\n"
+                                    "")
         self.label_28.setObjectName("label_28")
         self.verticalLayout_18.addWidget(self.label_28)
         self.label_46 = QtWidgets.QLabel(parent=self.widget_8)
@@ -75,8 +93,8 @@ class CardUI(object):
         font.setPointSize(10)
         self.label_46.setFont(font)
         self.label_46.setStyleSheet("\n"
-"border: 0px solid black;\n"
-"")
+                                    "border: 0px solid black;\n"
+                                    "")
         self.label_46.setObjectName("label_46")
         self.verticalLayout_18.addWidget(self.label_46)
         self.label_47 = QtWidgets.QLabel(parent=self.widget_8)
@@ -85,8 +103,8 @@ class CardUI(object):
         font.setPointSize(10)
         self.label_47.setFont(font)
         self.label_47.setStyleSheet("\n"
-"border: 0px solid black;\n"
-"")
+                                    "border: 0px solid black;\n"
+                                    "")
         self.label_47.setObjectName("label_47")
         self.verticalLayout_18.addWidget(self.label_47)
         self.label_48 = QtWidgets.QLabel(parent=self.widget_8)
@@ -95,11 +113,10 @@ class CardUI(object):
         font.setPointSize(10)
         self.label_48.setFont(font)
         self.label_48.setStyleSheet("\n"
-"border: 0px solid black;\n"
-"")
+                                    "border: 0px solid black;\n"
+                                    "")
         self.label_48.setObjectName("label_48")
         self.verticalLayout_18.addWidget(self.label_48)
-
         self.label_49 = QtWidgets.QLabel(parent=self.widget_8)
         font = QtGui.QFont()
         font.setFamily("Times New Roman")
@@ -108,21 +125,19 @@ class CardUI(object):
         self.label_49.setStyleSheet("\n"
                                     "border: 0px solid black;\n"
                                     "")
-        self.label_49.setObjectName("label_47")
+        self.label_49.setObjectName("label_49")
         self.verticalLayout_18.addWidget(self.label_49)
-
         self.verticalLayout_5.addLayout(self.verticalLayout_18)
-        self.horizontalLayout_11.addWidget(self.widget_8)
-        self.horizontalLayout_9.addLayout(self.horizontalLayout_11)
+        self.horizontalLayout_9.addWidget(self.widget_8)
         self.sale_11 = QtWidgets.QLabel(parent=self.widget_7)
-        self.sale_11.setMaximumSize(QtCore.QSize(200, 16777215))
+        self.sale_11.setMaximumSize(QtCore.QSize(150, 200))
         font = QtGui.QFont()
         font.setFamily("Times New Roman")
         font.setPointSize(10)
         self.sale_11.setFont(font)
         self.sale_11.setStyleSheet("\n"
-"border: 1px solid black;\n"
-"")
+                                   "border: 1px solid black;\n"
+                                   "")
         self.sale_11.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
         self.sale_11.setObjectName("sale_11")
         self.horizontalLayout_9.addWidget(self.sale_11)
@@ -141,10 +156,6 @@ class CardUI(object):
         self.label_48.setText(_translate("Form", "Еденица измерения:"))
         self.label_49.setText(_translate("Form", "Количество на складе:"))
         self.sale_11.setText(_translate("Form", "Действующая скидка"))
-        self.photo_10.setText("")
-        self.photo_10.setPixmap(QtGui.QPixmap(f"res/icon.jpg"))
-        self.photo_10.setScaledContents(True)
-        self.photo_10.setObjectName("photo_10")
 
 
 
@@ -153,6 +164,7 @@ class ProductCardUI(QWidget, CardUI):
     def __init__(self, name, description, manufacturer, supplier, price, unit, quantity, discount_percent, image_path="picture.png"):
         super().__init__()
         self.setupUi(self)
+        self.product_name = name
         self.label_15.setText(name)
         self.label_27.setText(f"Описание товара: {description}")
         self.label_28.setText(f"Производитель: {manufacturer}")
@@ -167,10 +179,11 @@ class ProductCardUI(QWidget, CardUI):
         self.photo_10.setScaledContents(True)
         self.photo_10.setObjectName("photo_10")
 
-        self.setMinimumHeight(170)
-
+        self.setMaximumWidth(900)
+        self.setMinimumHeight(171)
 
         self.show()
+
 
 if __name__ == "__main__":
     import sys
@@ -180,7 +193,7 @@ if __name__ == "__main__":
         description="Флагман",
         manufacturer="TechCorp",
         supplier="GlobalSupplies",
-        price="70000 руб.",
+        price="70000",
         unit="шт.",
         discount_percent=5,
         image_path="../Desktop/import/1.jpg",

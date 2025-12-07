@@ -81,13 +81,13 @@ class Ui_Login(object):
         font.setPointSize(12)
         self.login_button.setFont(font)
         self.login_button.setStyleSheet("#login_button {\n"
-"    background-color: #7FFF00;\n"
-"    border: 1px solid black;\n"
-"}\n"
-"\n"
-"#login_button:hover {\n"
-"    background-color: #00FA9A;\n"
-"}")
+                                        "    background-color: #7FFF00;\n"
+                                        "    border: 1px solid black;\n"
+                                        "}\n"
+                                        "\n"
+                                        "#login_button:hover {\n"
+                                        "    background-color: #00FA9A;\n"
+                                        "}")
         self.login_button.setObjectName("login_button")
         self.verticalLayout_2.addWidget(self.login_button)
         spacerItem = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Expanding)
