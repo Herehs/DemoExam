@@ -1,6 +1,6 @@
 import sys
 
-from PyQt6.QtGui import QPalette, QColor
+from PyQt6.QtGui import QPalette, QColor, QIcon
 from PyQt6.QtWidgets import (
     QApplication, QMainWindow, QStyleFactory
 )
@@ -32,6 +32,8 @@ if __name__ == "__main__":
     app.setStyle('Fusion')
     app.setStyleSheet("QWidget {background-color: white; color: black;}")
 
+
     manager = WindowManager(db= controller)
+    manager.setWindowIcon(QIcon("res/icons/Icon.JPG"))
     manager.show()
     sys.exit(app.exec())

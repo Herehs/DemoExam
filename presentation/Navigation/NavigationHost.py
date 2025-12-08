@@ -4,7 +4,7 @@ from PyQt6.QtWidgets import QMainWindow, QStackedWidget, QWidget, QLabel, QDialo
 from presentation.Login_UI.login_window import Ui_Login
 from presentation.Product_list_UI.products import Ui_List_of_products
 from presentation.Product_list_UI.widget import ProductCardUI
-from presentation.Product_edit_UI.product_edit_window import product_edit_window
+from presentation.Product_edit_UI.product_edit_window import product_edit_window, product_add_window
 
 
 class LoginWindow(QMainWindow, Ui_Login):
@@ -63,8 +63,12 @@ class List_of_products_screen_UI(QMainWindow, Ui_List_of_products):
         self.manager = manager
         self.username = None
         self.user_role = None
+
+        self.cards = []
+
         self.setupUi(self, db)
         self.connect_signals()
+        self.load_providers()
 
         # -----------------------------
         # Скрытие кнопок
@@ -132,6 +136,30 @@ class List_of_products_screen_UI(QMainWindow, Ui_List_of_products):
 
     def connect_signals(self):
         self.logout_button.clicked.connect(self.handle_logout)
+        self.add_product_button.clicked.connect(self.add_product)
+        self.delete_product_button.clicked.connect(self.delete_product)
+
+        self.search_input.textChanged.connect(self.apply_filters)
+        self.sort_input.currentIndexChanged.connect(self.apply_filters)
+        self.provider_input.currentIndexChanged.connect(self.apply_filters)
+
+    def delete_product(self):
+        try:
+            self.cards.remove(self.selected_card)
+            self.db.execute_query("DELETE FROM Products WHERE product_id = %s", [self.selected_card.id], fetch=False)
+            self.refresh_cards()
+        except Exception as e:
+            print(f"Ошибка удаления: {e}")
+            return
+
+    def add_product(self):
+        dlg = product_add_window(self)
+        dlg.setData(self.db)
+        dlg.connect_signals()
+
+        res = dlg.exec()
+        if res == QDialog.DialogCode.Accepted:
+            self.refresh_cards()
 
     def handle_logout(self):
         self.manager.goto_window("LoginWindow")
@@ -144,7 +172,7 @@ class List_of_products_screen_UI(QMainWindow, Ui_List_of_products):
 
     def query_from_DB(self):
         query = """
-        SELECT product_id, сategory, name, description, manufacturer, supplier, price, unit_of_measurement, discount, photo, quantity
+        SELECT product_id, category, name, description, manufacturer, supplier, price, unit_of_measurement, discount, photo, quantity
     FROM products;
     """
 
@@ -188,8 +216,6 @@ class List_of_products_screen_UI(QMainWindow, Ui_List_of_products):
             print(f"Ошибка при аутентификации: {e}")
             return False
 
-
-
     def set_data(self, username=None, user_role= None):
         """
         Получает имя пользователя из LoginWindow через WindowManager
@@ -225,6 +251,52 @@ class List_of_products_screen_UI(QMainWindow, Ui_List_of_products):
                 self.delete_product_button.show()
                 self.order_button.show()
                 print("administrator zaza")
+
+    def load_providers(self):
+        query = "SELECT DISTINCT supplier FROM products"
+        result = self.db.execute_query(query, fetch=True)
+
+        self.provider_input.clear()
+        self.provider_input.addItem("Все поставщики")
+
+        if result:
+            for (supplier,) in result:
+                self.provider_input.addItem(supplier)
+
+    def apply_filters(self):
+        search_text = self.search_input.text().lower()
+        sort_mode = self.sort_input.currentText()
+        provider = self.provider_input.currentText()
+
+        filtered = self.cards
+
+        # --- ФИЛЬТР ПО ПОИСКУ ---
+        if search_text.strip():
+            filtered = [
+                c for c in filtered
+                if search_text in c.name.lower()
+                   or search_text in c.description.lower()
+            ]
+
+        # --- ФИЛЬТР ПО ПОСТАВЩИКУ ---
+        if provider != "Все поставщики":
+            filtered = [c for c in filtered if c.supplier == provider]
+
+        # --- СОРТИРОВКА ---
+        if sort_mode == "По возрастанию":
+            filtered = sorted(filtered, key=lambda c: float(c.price))
+        elif sort_mode == "По убыванию":
+            filtered = sorted(filtered, key=lambda c: float(c.price), reverse=True)
+
+        # --- ОБНОВЛЕНИЕ ВИДЖЕТОВ ---
+        while self.scrollLayout.count():
+            item = self.scrollLayout.takeAt(0)
+            if item.widget():
+                item.widget().setParent(None)
+
+        for card in filtered:
+            self.scrollLayout.addWidget(card)
+
 
 class WindowManager(QMainWindow):
     def __init__(self, db):

@@ -8,6 +8,8 @@ from unicodedata import category
 
 from PyQt6 import QtCore, QtGui, QtWidgets
 from PyQt6.QtWidgets import QDialog
+import shutil
+import os
 
 
 class Ui_windowTitle(object):
@@ -325,6 +327,7 @@ class product_edit_window(QDialog, Ui_windowTitle):
         self.setupUi(self)
         self.update_list = update_list
 
+
     def setData(
             self,
             db,
@@ -353,8 +356,9 @@ class product_edit_window(QDialog, Ui_windowTitle):
         self.quantity = quantity
         self.discount_percent = discount_percent
         self.image_path = image_path
+        self.old_photo_path = self.image_path
 
-        self.photo.setPixmap(QtGui.QPixmap(f"res/{image_path}"))
+        self.photo.setPixmap(QtGui.QPixmap(f"res/images/{os.path.basename(self.image_path)}"))
         self.name_input.setText(name)
         self.maker_input.setCurrentText(manufacturer)
         self.description_input.setText(description)
@@ -367,13 +371,39 @@ class product_edit_window(QDialog, Ui_windowTitle):
 
     def connect_signals(self):
         self.save_button.clicked.connect(self.save_to_db)
+        self.save_button.clicked.connect(self.delete_old_image)
         self.save_button.clicked.connect(self.accept)
         self.cancel_button.clicked.connect(self.close)
+        self.download_photo.clicked.connect(self.download_photo_click)
+
+    def delete_old_image(self):
+        if os.path.basename(self.image_path) != "picture.png" and self.old_photo_path != self.image_path:
+            os.remove(f"res/images/{self.old_photo_path}")
+
+    def download_photo_click(self):
+
+        self.new_photo_path, _ = QtWidgets.QFileDialog.getOpenFileName(
+            self,
+            "Выбор файла",
+            "",
+            "Изображения (*.jpg *.png *.jpeg)"
+        )
+        if not self.new_photo_path:
+            self.new_photo_path = "picture.png"
+            return
+
+        shutil.copy(self.new_photo_path, f"res/images/{os.path.basename(self.new_photo_path)}")
+
+
+        self.image_path = os.path.basename(self.new_photo_path)
+        print(self.image_path)
+        self.photo.setPixmap(QtGui.QPixmap(f"res/images/{self.image_path}"))
+
 
     def save_to_db(self):
         query = """
             UPDATE products SET
-                сategory = %s,
+                category = %s,
                 name = %s,
                 manufacturer = %s,
                 description = %s,
@@ -406,7 +436,78 @@ class product_edit_window(QDialog, Ui_windowTitle):
         except Exception as e:
             print(f"Ошибка добавления: {e}")
 
+class product_add_window(QDialog, Ui_windowTitle):
+    def __init__(self, update_list):
+        super().__init__()
+        self.setupUi(self)
+        self.update_list = update_list
 
+        self.image_path = "picture.png"
+        self.old_photo_path = self.image_path
+
+        self.photo.setPixmap(QtGui.QPixmap(f"res/images/{os.path.basename(self.image_path)}"))
+
+    def connect_signals(self):
+        self.save_button.clicked.connect(self.save_to_db)
+        self.save_button.clicked.connect(self.delete_old_image)
+        self.save_button.clicked.connect(self.accept)
+        self.cancel_button.clicked.connect(self.close)
+        self.download_photo.clicked.connect(self.download_photo_click)
+
+    def setData(self, db):
+        self.db = db
+
+    def delete_old_image(self):
+        if os.path.basename(self.image_path) != "picture.png" and self.old_photo_path != self.image_path:
+            print(self.old_photo_path)
+            #os.remove(f"res/images/{self.old_photo_path}")
+
+    def download_photo_click(self):
+
+        self.new_photo_path, _ = QtWidgets.QFileDialog.getOpenFileName(
+            self,
+            "Выбор файла",
+            "",
+            "Изображения (*.jpg *.png *.jpeg)"
+        )
+        if not self.new_photo_path:
+            self.new_photo_path = "picture.png"
+            return
+
+        shutil.copy(self.new_photo_path, f"res/images/{os.path.basename(self.new_photo_path)}")
+
+
+        self.image_path = os.path.basename(self.new_photo_path)
+        print(self.image_path)
+        self.photo.setPixmap(QtGui.QPixmap(f"res/images/{self.image_path}"))
+
+
+    def save_to_db(self):
+        query = f"""
+            INSERT INTO Products
+             (name, unit_of_measurement, price,
+              supplier, manufacturer, category, discount, quantity, description, photo) VALUES
+            (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+        """
+        params = (
+            self.name_input.text(),
+            self.metric_input.text(),
+            self.price_input.value(),
+            self.provider_input.text(),
+            self.maker_input.currentText(),
+            self.category_input.currentText(),
+            self.discount_input.value(),
+            self.quantity_input.value(),
+            self.description_input.toPlainText(),
+            self.image_path
+        )
+        try:
+            result = self.db.execute_query(query, params, fetch=False)
+            if not result:
+                print("Ошибка добавления.")
+
+        except Exception as e:
+            print(f"Ошибка добавления: {e}")
 
 
 if __name__ == "__main__":

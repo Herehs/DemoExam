@@ -139,6 +139,7 @@ class Ui_Login(object):
         self.login_button.setText(_translate("Login", "Войти"))
         self.label_3.setText(_translate("Login", "ИЛИ"))
         self.guest_button.setText(_translate("Login", "Войти как гость"))
+        self.label.setPixmap(QtGui.QPixmap("res/icons/Icon.png"))
 
 
 if __name__ == "__main__":

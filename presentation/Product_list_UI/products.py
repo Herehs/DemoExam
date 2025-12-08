@@ -99,6 +99,7 @@ class Ui_List_of_products(object):
         self.sort_input.addItem("")
         self.sort_input.addItem("")
         self.sort_input.addItem("")
+        self.sort_input.setMinimumWidth(150)
         self.horizontalLayout_6.addWidget(self.sort_input)
         self.provider_input = QtWidgets.QComboBox(parent=self.verticalLayoutWidget)
         font = QtGui.QFont()
@@ -107,13 +108,14 @@ class Ui_List_of_products(object):
         self.provider_input.setFont(font)
         self.provider_input.setStyleSheet("#provider_input {\n"
                                           "    border: 1px solid black;\n"
-                                          "}\n"
+                                          "}\n" 
                                           "\n"
                                           "#provider_input:hover {\n"
                                           "    border-color: #00FA9A;\n"
                                           "}")
         self.provider_input.setObjectName("provider_input")
         self.provider_input.addItem("")
+        self.provider_input.setMinimumWidth(150)
         self.horizontalLayout_6.addWidget(self.provider_input)
         spacerItem1 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Policy.Expanding,
                                             QtWidgets.QSizePolicy.Policy.Minimum)
