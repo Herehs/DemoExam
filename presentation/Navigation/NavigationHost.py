@@ -1,8 +1,10 @@
-from PyQt6 import QtCore
-from PyQt6.QtWidgets import QMainWindow, QStackedWidget, QWidget, QLabel
+from PyQt6 import QtCore, QtWidgets
+from PyQt6.QtWidgets import QMainWindow, QStackedWidget, QWidget, QLabel, QDialog
 
 from presentation.Login_UI.login_window import Ui_Login
 from presentation.Product_list_UI.products import Ui_List_of_products
+from presentation.Product_list_UI.widget import ProductCardUI
+from presentation.Product_edit_UI.product_edit_window import product_edit_window
 
 
 class LoginWindow(QMainWindow, Ui_Login):
@@ -75,6 +77,58 @@ class List_of_products_screen_UI(QMainWindow, Ui_List_of_products):
         self.delete_product_button.hide()
         self.order_button.hide()
 
+        self.cards = self.query_from_DB()
+        self.selected_card = None
+        for card in self.cards:
+            card.clicked.connect(lambda _, c=card: self.card_clicked(c))
+            card.doubleClicked.connect(lambda _, c=card: self.card_double_clicked(c))
+            self.scrollLayout.addWidget(card)
+
+    def refresh_cards(self):
+        # удалить старые карточки
+        while self.scrollLayout.count():
+            item = self.scrollLayout.takeAt(0)
+            w = item.widget()
+            if w:
+                w.setParent(None)
+
+        # загрузить новые
+        self.cards = self.query_from_DB()
+        for card in self.cards:
+            card.clicked.connect(lambda _, c=card: self.card_clicked(c))
+            card.doubleClicked.connect(lambda _, c=card: self.card_double_clicked(c))
+            self.scrollLayout.addWidget(card)
+
+    def card_clicked(self, card):
+        if self.selected_card and self.selected_card != card:
+            self.selected_card.set_selected(False)
+
+        self.selected_card = card
+        card.set_selected(True)
+
+    def card_double_clicked(self, card):
+
+        dlg = product_edit_window(self)
+
+        dlg.setData(
+            db=self.db,
+            id=card.id,
+            name= f"{card.name}",
+            category= f"{card.category}",
+            description=f"{card.description}",
+            manufacturer=f"{card.manufacturer}",
+            supplier=f"{card.supplier}",
+            price=f"{card.price}",
+            unit=f"{card.unit}",
+            quantity=f"{card.quantity}",
+            discount_percent=f"{card.discount_percent}",
+            image_path= card.image_path,
+        )
+        dlg.connect_signals()
+
+        res = dlg.exec()
+        if res == QDialog.DialogCode.Accepted:
+            self.refresh_cards()
 
     def connect_signals(self):
         self.logout_button.clicked.connect(self.handle_logout)
@@ -87,6 +141,52 @@ class List_of_products_screen_UI(QMainWindow, Ui_List_of_products):
         self.add_product_button.hide()
         self.delete_product_button.hide()
         self.order_button.hide()
+
+    def query_from_DB(self):
+        query = """
+        SELECT product_id, сategory, name, description, manufacturer, supplier, price, unit_of_measurement, discount, photo, quantity
+    FROM products;
+    """
+
+        try:
+            result = self.db.execute_query(query, fetch=True)
+            cards = []
+            if result:
+                for row in result:
+                    product_id, category, name, description, manufacturer, supplier, price, unit, discount, photo, quantity = row
+
+                    if photo == '':
+                        photo = "picture.png"
+
+                    product_card = ProductCardUI(
+                        id=product_id,
+                        category=category,
+                        name=f"{name}",
+                        description=f"{description}",
+                        manufacturer=f"{manufacturer}",
+                        supplier=f"{supplier}",
+                        price=f"{price}",
+                        unit=f"{unit}",
+                        discount_percent=f"{discount}",
+                        quantity=f"{quantity}",
+                        image_path= photo
+                    )
+                    s = f"""
+                        QWidget {{
+                            border-color: 00FA9A;
+                        }}
+                        """
+                    product_card.setStyleSheet(s)
+                    cards.append(product_card)
+
+                return cards
+            else:
+                print("Ошибка аутентификации: неверный логин или пароль.")
+                return False
+
+        except Exception as e:
+            print(f"Ошибка при аутентификации: {e}")
+            return False
 
 
 

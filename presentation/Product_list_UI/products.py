@@ -9,7 +9,6 @@
 from PyQt6 import QtCore, QtGui, QtWidgets
 
 
-from presentation.Product_list_UI.widget import ProductCardUI
 
 
 class Ui_List_of_products(object):
@@ -26,17 +25,29 @@ class Ui_List_of_products(object):
         self.logo_label.setPixmap(QtGui.QPixmap("../PycharmProjects/DemoExam/presentation/Desktop/import/Icon.png"))
         self.logo_label.setScaledContents(True)
         self.logo_label.setObjectName("logo_label")
-        self.gridLayoutWidget = QtWidgets.QWidget(parent=self.centralwidget)
-        self.gridLayoutWidget.setGeometry(QtCore.QRect(90, 0, 921, 80))
-        self.gridLayoutWidget.setObjectName("gridLayoutWidget")
-        self.gridLayout = QtWidgets.QGridLayout(self.gridLayoutWidget)
-        self.gridLayout.setContentsMargins(0, 0, 0, 0)
-        self.gridLayout.setObjectName("gridLayout")
-        self.horizontalLayout = QtWidgets.QHBoxLayout()
-        self.horizontalLayout.setObjectName("horizontalLayout")
-        self.logout_button = QtWidgets.QPushButton(parent=self.gridLayoutWidget)
+        self.verticalLayoutWidget = QtWidgets.QWidget(parent=self.centralwidget)
+        self.verticalLayoutWidget.setGeometry(QtCore.QRect(50, 20, 1031, 101))
+        self.verticalLayoutWidget.setObjectName("verticalLayoutWidget")
+        self.verticalLayout_3 = QtWidgets.QVBoxLayout(self.verticalLayoutWidget)
+        self.verticalLayout_3.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_3.setObjectName("verticalLayout_3")
+        self.horizontalLayout_7 = QtWidgets.QHBoxLayout()
+        self.horizontalLayout_7.setObjectName("horizontalLayout_7")
+        self.catalog_label = QtWidgets.QLabel(parent=self.verticalLayoutWidget)
+        self.catalog_label.setObjectName("catalog_label")
+        self.horizontalLayout_7.addWidget(self.catalog_label)
+        spacerItem = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Policy.Expanding,
+                                           QtWidgets.QSizePolicy.Policy.Minimum)
+        self.horizontalLayout_7.addItem(spacerItem)
+        self.user_fio = QtWidgets.QLabel(parent=self.verticalLayoutWidget)
+        font = QtGui.QFont()
+        font.setFamily("Times New Roman")
+        font.setPointSize(10)
+        self.user_fio.setFont(font)
+        self.user_fio.setObjectName("user_fio")
+        self.horizontalLayout_7.addWidget(self.user_fio)
+        self.logout_button = QtWidgets.QPushButton(parent=self.verticalLayoutWidget)
         self.logout_button.setMinimumSize(QtCore.QSize(41, 20))
-        self.logout_button.setMaximumSize(QtCore.QSize(41, 20))
         font = QtGui.QFont()
         font.setFamily("Times New Roman")
         font.setPointSize(10)
@@ -50,26 +61,29 @@ class Ui_List_of_products(object):
                                          "    background-color: #00FA9A;\n"
                                          "}")
         self.logout_button.setObjectName("logout_button")
-        self.horizontalLayout.addWidget(self.logout_button)
-        self.gridLayout.addLayout(self.horizontalLayout, 0, 1, 1, 1)
-        self.horizontalLayout_3 = QtWidgets.QHBoxLayout()
-        self.horizontalLayout_3.setObjectName("horizontalLayout_3")
-        self.provider_input = QtWidgets.QComboBox(parent=self.gridLayoutWidget)
+        self.horizontalLayout_7.addWidget(self.logout_button)
+        self.verticalLayout_3.addLayout(self.horizontalLayout_7)
+        self.horizontalLayout_5 = QtWidgets.QHBoxLayout()
+        self.horizontalLayout_5.setObjectName("horizontalLayout_5")
+        self.search_input = QtWidgets.QLineEdit(parent=self.verticalLayoutWidget)
         font = QtGui.QFont()
         font.setFamily("Times New Roman")
         font.setPointSize(10)
-        self.provider_input.setFont(font)
-        self.provider_input.setStyleSheet("#provider_input {\n"
-                                          "    border: 1px solid black;\n"
-                                          "}\n"
-                                          "\n"
-                                          "#provider_input:hover {\n"
-                                          "    border-color: #00FA9A;\n"
-                                          "}")
-        self.provider_input.setObjectName("provider_input")
-        self.provider_input.addItem("")
-        self.horizontalLayout_3.addWidget(self.provider_input)
-        self.sort_input = QtWidgets.QComboBox(parent=self.gridLayoutWidget)
+        self.search_input.setFont(font)
+        self.search_input.setStyleSheet("#search_input {\n"
+                                        "    border: 1px solid black;\n"
+                                        "}\n"
+                                        "\n"
+                                        "#search_input:hover {\n"
+                                        "    border-color: #00FA9A;\n"
+                                        "}")
+        self.search_input.setText("")
+        self.search_input.setObjectName("search_input")
+        self.horizontalLayout_5.addWidget(self.search_input)
+        self.verticalLayout_3.addLayout(self.horizontalLayout_5)
+        self.horizontalLayout_6 = QtWidgets.QHBoxLayout()
+        self.horizontalLayout_6.setObjectName("horizontalLayout_6")
+        self.sort_input = QtWidgets.QComboBox(parent=self.verticalLayoutWidget)
         font = QtGui.QFont()
         font.setFamily("Times New Roman")
         font.setPointSize(10)
@@ -85,42 +99,26 @@ class Ui_List_of_products(object):
         self.sort_input.addItem("")
         self.sort_input.addItem("")
         self.sort_input.addItem("")
-        self.horizontalLayout_3.addWidget(self.sort_input)
-        self.horizontalLayout_10 = QtWidgets.QHBoxLayout()
-        self.horizontalLayout_10.setObjectName("horizontalLayout_10")
-        self.add_product_button = QtWidgets.QPushButton(parent=self.gridLayoutWidget)
-        self.add_product_button.setMinimumSize(QtCore.QSize(91, 20))
+        self.horizontalLayout_6.addWidget(self.sort_input)
+        self.provider_input = QtWidgets.QComboBox(parent=self.verticalLayoutWidget)
         font = QtGui.QFont()
         font.setFamily("Times New Roman")
         font.setPointSize(10)
-        self.add_product_button.setFont(font)
-        self.add_product_button.setStyleSheet("#add_product_button {\n"
-                                              "    background-color: #7FFF00;\n"
-                                              "    border: 1px solid black;\n"
-                                              "}\n"
-                                              "\n"
-                                              "#add_product_button:hover {\n"
-                                              "    background-color: #00FA9A;\n"
-                                              "}")
-        self.add_product_button.setObjectName("add_product_button")
-        self.horizontalLayout_10.addWidget(self.add_product_button)
-        self.delete_product_button = QtWidgets.QPushButton(parent=self.gridLayoutWidget)
-        self.delete_product_button.setMinimumSize(QtCore.QSize(85, 20))
-        font = QtGui.QFont()
-        font.setFamily("Times New Roman")
-        font.setPointSize(10)
-        self.delete_product_button.setFont(font)
-        self.delete_product_button.setStyleSheet("#delete_product_button {\n"
-                                                 "    background-color: #7FFF00;\n"
-                                                 "    border: 1px solid black;\n"
-                                                 "}\n"
-                                                 "\n"
-                                                 "#delete_product_button:hover {\n"
-                                                 "    background-color: #00FA9A;\n"
-                                                 "}")
-        self.delete_product_button.setObjectName("delete_product_button")
-        self.horizontalLayout_10.addWidget(self.delete_product_button)
-        self.order_button = QtWidgets.QPushButton(parent=self.gridLayoutWidget)
+        self.provider_input.setFont(font)
+        self.provider_input.setStyleSheet("#provider_input {\n"
+                                          "    border: 1px solid black;\n"
+                                          "}\n"
+                                          "\n"
+                                          "#provider_input:hover {\n"
+                                          "    border-color: #00FA9A;\n"
+                                          "}")
+        self.provider_input.setObjectName("provider_input")
+        self.provider_input.addItem("")
+        self.horizontalLayout_6.addWidget(self.provider_input)
+        spacerItem1 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Policy.Expanding,
+                                            QtWidgets.QSizePolicy.Policy.Minimum)
+        self.horizontalLayout_6.addItem(spacerItem1)
+        self.order_button = QtWidgets.QPushButton(parent=self.verticalLayoutWidget)
         self.order_button.setMinimumSize(QtCore.QSize(45, 20))
         font = QtGui.QFont()
         font.setFamily("Times New Roman")
@@ -135,49 +133,50 @@ class Ui_List_of_products(object):
                                         "    background-color: #00FA9A;\n"
                                         "}")
         self.order_button.setObjectName("order_button")
-        self.horizontalLayout_10.addWidget(self.order_button)
-        self.horizontalLayout_3.addLayout(self.horizontalLayout_10)
-
-        self.gridLayout.addLayout(self.horizontalLayout_3, 0, 0, 1, 1)
-        self.search_input = QtWidgets.QLineEdit(parent=self.gridLayoutWidget)
+        self.horizontalLayout_6.addWidget(self.order_button)
+        self.delete_product_button = QtWidgets.QPushButton(parent=self.verticalLayoutWidget)
+        self.delete_product_button.setMinimumSize(QtCore.QSize(85, 20))
         font = QtGui.QFont()
         font.setFamily("Times New Roman")
         font.setPointSize(10)
-        self.search_input.setFont(font)
-        self.search_input.setStyleSheet("#search_input {\n"
-                                        "    border: 1px solid black;\n"
-                                        "}\n"
-                                        "\n"
-                                        "#search_input:hover {\n"
-                                        "    border-color: #00FA9A;\n"
-                                        "}")
-        self.search_input.setText("")
-        self.search_input.setObjectName("search_input")
-        self.gridLayout.addWidget(self.search_input, 1, 0, 1, 1)
-        self.user_fio = QtWidgets.QLabel(parent=self.gridLayoutWidget)
+        self.delete_product_button.setFont(font)
+        self.delete_product_button.setStyleSheet("#delete_product_button {\n"
+                                                 "    background-color: #7FFF00;\n"
+                                                 "    border: 1px solid black;\n"
+                                                 "}\n"
+                                                 "\n"
+                                                 "#delete_product_button:hover {\n"
+                                                 "    background-color: #00FA9A;\n"
+                                                 "}")
+        self.delete_product_button.setObjectName("delete_product_button")
+        self.horizontalLayout_6.addWidget(self.delete_product_button)
+        self.add_product_button = QtWidgets.QPushButton(parent=self.verticalLayoutWidget)
+        self.add_product_button.setMinimumSize(QtCore.QSize(91, 20))
         font = QtGui.QFont()
         font.setFamily("Times New Roman")
         font.setPointSize(10)
-        self.user_fio.setFont(font)
-        self.user_fio.setObjectName("user_fio")
-        self.gridLayout.addWidget(self.user_fio, 1, 1, 1, 1)
+        self.add_product_button.setFont(font)
+        self.add_product_button.setStyleSheet("#add_product_button {\n"
+                                              "    background-color: #7FFF00;\n"
+                                              "    border: 1px solid black;\n"
+                                              "}\n"
+                                              "\n"
+                                              "#add_product_button:hover {\n"
+                                              "    background-color: #00FA9A;\n"
+                                              "}")
+        self.add_product_button.setObjectName("add_product_button")
+        self.horizontalLayout_6.addWidget(self.add_product_button)
+        self.verticalLayout_3.addLayout(self.horizontalLayout_6)
         self.scrollArea = QtWidgets.QScrollArea(parent=self.centralwidget)
-        self.scrollArea.setGeometry(QtCore.QRect(90, 90, 941, 471))
-        self.scrollArea.setMaximumSize(QtCore.QSize(941, 471))
-        self.scrollArea.setWidgetResizable(True)
+        self.scrollArea.setGeometry(QtCore.QRect(48, 129, 1031, 471))
         self.scrollArea.setStyleSheet("")
         self.scrollArea.setWidgetResizable(True)
         self.scrollArea.setObjectName("scrollArea")
         self.scrollAreaWidgetContents = QtWidgets.QWidget()
-        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 939, 469))
+        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 1029, 469))
         self.scrollAreaWidgetContents.setObjectName("scrollAreaWidgetContents")
         self.scrollLayout = QtWidgets.QVBoxLayout(self.scrollAreaWidgetContents)
         self.scrollLayout.setObjectName("scrollLayout")
-
-        cards = self.query_from_DB()
-        for i in cards:  # Для теста добавляем 4 продукта
-            self.scrollLayout.addWidget(i)
-
         self.scrollArea.setWidget(self.scrollAreaWidgetContents)
         List_of_products.setCentralWidget(self.centralwidget)
 
@@ -187,61 +186,35 @@ class Ui_List_of_products(object):
     def retranslateUi(self, List_of_products):
         _translate = QtCore.QCoreApplication.translate
         List_of_products.setWindowTitle(_translate("List_of_products", "MainWindow"))
+        self.catalog_label.setText(_translate("List_of_products", "Каталог"))
+        self.user_fio.setText(_translate("List_of_products", "Фамилия Имя Отчество"))
         self.logout_button.setText(_translate("List_of_products", "Выход"))
-        self.provider_input.setItemText(0, _translate("List_of_products", "Все поставщики"))
+        self.search_input.setPlaceholderText(_translate("List_of_products", "Поиск"))
         self.sort_input.setCurrentText(_translate("List_of_products", "Без сортировки"))
         self.sort_input.setItemText(0, _translate("List_of_products", "Без сортировки"))
         self.sort_input.setItemText(1, _translate("List_of_products", "По возрастанию"))
         self.sort_input.setItemText(2, _translate("List_of_products", "По убыванию"))
-        self.add_product_button.setText(_translate("List_of_products", "Добавить товар"))
-        self.delete_product_button.setText(_translate("List_of_products", "Удалить товар"))
+        self.provider_input.setItemText(0, _translate("List_of_products", "Все поставщики"))
         self.order_button.setText(_translate("List_of_products", "Заказы"))
-        self.search_input.setPlaceholderText(_translate("List_of_products", "Поиск"))
+        self.delete_product_button.setText(_translate("List_of_products", "Удалить товар"))
+        self.add_product_button.setText(_translate("List_of_products", "Добавить товар"))
+
+    def retranslateUi(self, List_of_products):
+        _translate = QtCore.QCoreApplication.translate
+        List_of_products.setWindowTitle(_translate("List_of_products", "MainWindow"))
+        self.catalog_label.setText(_translate("List_of_products", "Каталог"))
         self.user_fio.setText(_translate("List_of_products", "Фамилия Имя Отчество"))
+        self.logout_button.setText(_translate("List_of_products", "Выход"))
+        self.search_input.setPlaceholderText(_translate("List_of_products", "Поиск"))
+        self.sort_input.setCurrentText(_translate("List_of_products", "Без сортировки"))
+        self.sort_input.setItemText(0, _translate("List_of_products", "Без сортировки"))
+        self.sort_input.setItemText(1, _translate("List_of_products", "По возрастанию"))
+        self.sort_input.setItemText(2, _translate("List_of_products", "По убыванию"))
+        self.provider_input.setItemText(0, _translate("List_of_products", "Все поставщики"))
+        self.order_button.setText(_translate("List_of_products", "Заказы"))
+        self.delete_product_button.setText(_translate("List_of_products", "Удалить товар"))
+        self.add_product_button.setText(_translate("List_of_products", "Добавить товар"))
 
-    def query_from_DB(self):
-        query = """
-        SELECT name, description, manufacturer, supplier, price, unit_of_measurement, discount, photo, quantity
-    FROM products;
-    """
-
-        try:
-            result = self.db.execute_query(query, fetch=True)
-            cards = []
-            if result:
-                for row in result:
-                    name, description, manufacturer, supplier, price, unit, discount, photo, quantity = row
-
-                    if photo == '':
-                        photo = "picture.png"
-
-                    product_card = ProductCardUI(
-                        name=f"{name}",
-                        description=f"{description}",
-                        manufacturer=f"{manufacturer}",
-                        supplier=f"{supplier}",
-                        price=f"{price}",
-                        unit=f"{unit}",
-                        discount_percent=f"{discount}",
-                        quantity=f"{quantity}",
-                        image_path= photo
-                    )
-                    s = f"""
-                        QWidget {{
-                            border-color: 00FA9A;
-                        }}
-                        """
-                    product_card.setStyleSheet(s)
-                    cards.append(product_card)
-
-                return cards
-            else:
-                print("Ошибка аутентификации: неверный логин или пароль.")
-                return False
-
-        except Exception as e:
-            print(f"Ошибка при аутентификации: {e}")
-            return False
 
 
 

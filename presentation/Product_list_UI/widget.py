@@ -16,9 +16,9 @@ class CardUI(object):
         Form.setObjectName("Form")
         Form.resize(957, 300)
         self.widget_7 = QtWidgets.QWidget(parent=Form)
-        self.widget_7.setGeometry(QtCore.QRect(0, 0, 900, 171))
-        self.widget_7.setMinimumSize(QtCore.QSize(900, 0))
-        self.widget_7.setMaximumSize(QtCore.QSize(900, 300))
+        self.widget_7.setGeometry(QtCore.QRect(0, 0, 995, 171))
+        self.widget_7.setMinimumSize(QtCore.QSize(995, 0))
+        self.widget_7.setMaximumSize(QtCore.QSize(995, 300))
         self.widget_7.setStyleSheet("\n"
                                     "border: 1px solid black;\n"
                                     "")
@@ -161,15 +161,37 @@ class CardUI(object):
 
 
 class ProductCardUI(QWidget, CardUI):
-    def __init__(self, name, description, manufacturer, supplier, price, unit, quantity, discount_percent, image_path="picture.png"):
+    clicked = pyqtSignal(object)
+    doubleClicked = pyqtSignal(object)
+
+    def __init__(self, id, category, name, description, manufacturer, supplier, price, unit, quantity, discount_percent, image_path="picture.png"):
         super().__init__()
+
+        self.category = category
+        self.id = id
+
+        self.name = name
+        self.description = description
+        self.manufacturer = manufacturer
+        self.supplier = supplier
+        self.price = price
+        self.unit = unit
+        self.quantity = quantity
+        self.discount_percent = discount_percent
+        self.image_path = image_path
+
         self.setupUi(self)
         self.product_name = name
         self.label_15.setText(name)
         self.label_27.setText(f"Описание товара: {description}")
         self.label_28.setText(f"Производитель: {manufacturer}")
         self.label_46.setText(f"Поставщик: {supplier}")
-        self.label_47.setText(f"Цена: <span style='text-decoration: line-through; color: #FF0000;'>{price}</span> <span>{int(price) * (100-int(discount_percent))/100} руб. </span>")
+
+        if int(self.discount_percent) > 0:
+            self.label_47.setText(f"Цена: <span style='text-decoration: line-through; color: #FF0000;'>{float(self.price):.2f}</span> <span>{float(self.price) * (100 - float(self.discount_percent)) / 100:.2f} руб. </span>")
+        else:
+            self.label_47.setText(f"Цена: <span>{float(self.price)}</span>")
+
         self.label_48.setText(f"Еденица измерения: {unit}")
         self.label_49.setText(f"Количество на складе: {quantity}")
         self.sale_11.setText(f"Скидка: {discount_percent}%")
@@ -179,10 +201,27 @@ class ProductCardUI(QWidget, CardUI):
         self.photo_10.setScaledContents(True)
         self.photo_10.setObjectName("photo_10")
 
-        self.setMaximumWidth(900)
+        self.setMaximumWidth(1031)
         self.setMinimumHeight(171)
 
         self.show()
+
+    def mousePressEvent(self, event):
+        self.clicked.emit(self)
+
+    def mouseDoubleClickEvent(self, event):
+        self.doubleClicked.emit(self)
+
+    def set_selected(self, selected: bool):
+        if selected:
+            self.photo_10.setStyleSheet("border: 2px solid #00FA9A;")
+            self.sale_11.setStyleSheet("border: 2px solid #00FA9A;")
+            self.widget_7.setStyleSheet("border: 2px solid #00FA9A;")
+        else:
+            self.photo_10.setStyleSheet("border: 1px solid black;")
+            self.sale_11.setStyleSheet("border: 1px solid black;")
+            self.widget_7.setStyleSheet("border: 1px solid black;")
+
 
 
 if __name__ == "__main__":
