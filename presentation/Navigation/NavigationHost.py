@@ -276,6 +276,9 @@ class List_of_products_screen_UI(QMainWindow, Ui_List_of_products):
                 c for c in filtered
                 if search_text in c.name.lower()
                    or search_text in c.description.lower()
+                   or search_text in c.manufacturer.lower()
+                   or search_text in c.supplier.lower()
+                   or search_text in c.price.lower()
             ]
 
         # --- ФИЛЬТР ПО ПОСТАВЩИКУ ---
