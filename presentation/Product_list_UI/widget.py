@@ -222,7 +222,15 @@ class ProductCardUI(QWidget, CardUI):
             self.sale_11.setStyleSheet("border: 1px solid black;")
             self.widget_7.setStyleSheet("border: 1px solid black;")
 
-
+    def disconnect_all(self):
+        try:
+            self.clicked.disconnect()
+        except:
+            pass
+        try:
+            self.doubleClicked.disconnect()
+        except:
+            pass
 
 if __name__ == "__main__":
     import sys

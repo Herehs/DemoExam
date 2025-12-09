@@ -194,28 +194,13 @@ class Ui_List_of_products(object):
         self.search_input.setPlaceholderText(_translate("List_of_products", "Поиск"))
         self.sort_input.setCurrentText(_translate("List_of_products", "Без сортировки"))
         self.sort_input.setItemText(0, _translate("List_of_products", "Без сортировки"))
-        self.sort_input.setItemText(1, _translate("List_of_products", "По возрастанию"))
-        self.sort_input.setItemText(2, _translate("List_of_products", "По убыванию"))
+        self.sort_input.setItemText(1, _translate("List_of_products", "Цена по возрастанию"))
+        self.sort_input.setItemText(2, _translate("List_of_products", "Цена по убыванию"))
         self.provider_input.setItemText(0, _translate("List_of_products", "Все поставщики"))
         self.order_button.setText(_translate("List_of_products", "Заказы"))
         self.delete_product_button.setText(_translate("List_of_products", "Удалить товар"))
         self.add_product_button.setText(_translate("List_of_products", "Добавить товар"))
 
-    def retranslateUi(self, List_of_products):
-        _translate = QtCore.QCoreApplication.translate
-        List_of_products.setWindowTitle(_translate("List_of_products", "MainWindow"))
-        self.catalog_label.setText(_translate("List_of_products", "Каталог"))
-        self.user_fio.setText(_translate("List_of_products", "Фамилия Имя Отчество"))
-        self.logout_button.setText(_translate("List_of_products", "Выход"))
-        self.search_input.setPlaceholderText(_translate("List_of_products", "Поиск"))
-        self.sort_input.setCurrentText(_translate("List_of_products", "Без сортировки"))
-        self.sort_input.setItemText(0, _translate("List_of_products", "Без сортировки"))
-        self.sort_input.setItemText(1, _translate("List_of_products", "По возрастанию"))
-        self.sort_input.setItemText(2, _translate("List_of_products", "По убыванию"))
-        self.provider_input.setItemText(0, _translate("List_of_products", "Все поставщики"))
-        self.order_button.setText(_translate("List_of_products", "Заказы"))
-        self.delete_product_button.setText(_translate("List_of_products", "Удалить товар"))
-        self.add_product_button.setText(_translate("List_of_products", "Добавить товар"))
 
 
 
