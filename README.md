@@ -1,6 +1,6 @@
 # Шаг Вперёд
 
-![Тут должно юыть изображение =)](/readme.png)
+![Тут должно быть изображение =)](/photos/readme.png)
 ​
  **Шаг Вперёд** — это информационная система для компании, занимающейся продажей обуви. Оно предоставляет удобные средства для управления товарами и заказами, а также поддерживает работу разных типов пользователей: гостя, авторизованного клиента, менеджера и администратора.
 
@@ -73,11 +73,11 @@
 
 ## Стек технологий
 
-- Язык программирования: Python (PyQt6, psycopg) <img src="python.png" alt="картинка" width="25" style="position: relative; top: 8px;">
+- Язык программирования: Python (PyQt6, psycopg) <img src="/photos/python.png" alt="картинка" width="25" style="position: relative; top: 8px;">
 
-- Инструменты UI: Qt Designer <img src="qt_logo.png" alt="картинка" width="25" style="position: relative; top: 4px;">
+- Инструменты UI: Qt Designer <img src="/photos/qt_logo.png" alt="картинка" width="25" style="position: relative; top: 4px;">
 
-- Базы данных: PostgreSQL <img src="postgresql_logo.png" alt="картинка" width="25" style="vertical-align: middle;">
+- Базы данных: PostgreSQL <img src="/photos/postgresql_logo.png" alt="картинка" width="25" style="vertical-align: middle;">
 
 ---
 
@@ -85,12 +85,12 @@
 
 ### Каталог
 
-![фото](/main_window.png)
+![фото](/photos/main_window.png)
 
 ### Редактирование товаров
 
-![фото](/edit_product.png)
+![фото](/photos/edit_product.png)
 
 ### Список заказов
 
-![фото](/order_window.png)
+![фото](/photos/order_window.png)
