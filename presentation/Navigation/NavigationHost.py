@@ -4,7 +4,7 @@ from functools import partial
 
 from PyQt6.QtCore import QDate, Qt
 from PyQt6.QtGui import QIcon
-from PyQt6.QtWidgets import QMainWindow, QStackedWidget, QDialog, QListView
+from PyQt6.QtWidgets import QMainWindow, QStackedWidget, QDialog, QListView, QLabel
 
 from presentation.Edit_order_UI.order_edit_window import Ui_order_edit
 from presentation.Login_UI.login_window import Ui_Login
@@ -22,6 +22,7 @@ class LoginWindow(QMainWindow, Ui_Login):
         self.db = db
         self.setupUi(self)
         self.connect_signals()
+        self.label = QLabel(f"<span style=' color: #FF0000;'>Неверный логин или пароль</span>")
 
     def connect_signals(self):
         self.login_button.clicked.connect(self.handle_login)
@@ -51,8 +52,13 @@ class LoginWindow(QMainWindow, Ui_Login):
             if result:
                 user_id, user_role, full_name, user_role = result[0]
                 print(f"Аутентификация успешна: ID={user_id}, Роль={user_role}")
+                self.label.hide()
+                self.verticalLayout_3.removeWidget(self.label)
                 return True, full_name, user_role
             else:
+
+                self.verticalLayout_3.insertWidget(0, self.label)
+                self.label.show()
                 print("Ошибка: неверный логин или пароль.")
                 return False, None, None
 

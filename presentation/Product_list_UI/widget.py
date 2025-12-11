@@ -198,9 +198,12 @@ class ProductCardUI(QWidget, CardUI):
         self.sale_11.setText(f"Скидка: {discount_percent}%")
 
         if int(self.discount_percent) >= 15:
-            self.sale_11.setText(f"<span style='text-decoration: line-through; color: #FF0000;'> </span>")
-        else:
-            self.sale_11.setText(f"Скидка: {discount_percent}%")
+            self.sale_11.setStyleSheet("background-color: #2E8B57;")
+
+
+
+
+
 
 
         self.photo_10.setText("")
@@ -224,10 +227,14 @@ class ProductCardUI(QWidget, CardUI):
             self.photo_10.setStyleSheet("border: 2px solid #00FA9A;")
             self.sale_11.setStyleSheet("border: 2px solid #00FA9A;")
             self.widget_7.setStyleSheet("border: 2px solid #00FA9A;")
+            if int(self.discount_percent) >= 15:
+                self.sale_11.setStyleSheet("background-color: #2E8B57;")
         else:
             self.photo_10.setStyleSheet("border: 1px solid black;")
             self.sale_11.setStyleSheet("border: 1px solid black;")
             self.widget_7.setStyleSheet("border: 1px solid black;")
+            if int(self.discount_percent) >= 15:
+                self.sale_11.setStyleSheet("background-color: #2E8B57;")
 
     def disconnect_all(self):
         try:

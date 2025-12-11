@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="89662cca-3035-4b44-9179-e45e77e51b53" name="Changes" comment="прочитай меня!!!">
+    <list default="true" id="89662cca-3035-4b44-9179-e45e77e51b53" name="Changes" comment="даны названия всем окнам!!!">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/presentation/Login_UI/login_window.py" beforeDir="false" afterPath="$PROJECT_DIR$/presentation/Login_UI/login_window.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/presentation/Navigation/NavigationHost.py" beforeDir="false" afterPath="$PROJECT_DIR$/presentation/Navigation/NavigationHost.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation/Product_list_UI/widget.py" beforeDir="false" afterPath="$PROJECT_DIR$/presentation/Product_list_UI/widget.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -412,7 +412,15 @@
       <option name="project" value="LOCAL" />
       <updated>1765481926496</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="даны названия всем окнам!!!">
+      <option name="closed" value="true" />
+      <created>1765483463030</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1765483463030</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -442,7 +450,8 @@
     <MESSAGE value="нада" />
     <MESSAGE value="релиииииззз!!!" />
     <MESSAGE value="прочитай меня!!!" />
-    <option name="LAST_COMMIT_MESSAGE" value="прочитай меня!!!" />
+    <MESSAGE value="даны названия всем окнам!!!" />
+    <option name="LAST_COMMIT_MESSAGE" value="даны названия всем окнам!!!" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>
@@ -501,6 +510,12 @@
           <option name="totalLines" value="5123" />
           <option name="info" value="прочитай меня!!!" />
         </TimePoint>
+        <TimePoint>
+          <option name="timestamp" value="1765483463058" />
+          <option name="linesCode" value="2190" />
+          <option name="totalLines" value="5136" />
+          <option name="info" value="даны названия всем окнам!!!" />
+        </TimePoint>
       </list>
     </option>
     <option name="genericTimePoints">
@@ -530,9 +545,9 @@
           <option name="info" value="11 дек. 2025 г." />
         </TimePoint>
         <TimePoint>
-          <option name="timestamp" value="1765481926553" />
-          <option name="linesCode" value="2174" />
-          <option name="totalLines" value="5123" />
+          <option name="timestamp" value="1765483463058" />
+          <option name="linesCode" value="2190" />
+          <option name="totalLines" value="5136" />
           <option name="info" value="11 дек. 2025 г." />
         </TimePoint>
       </list>
