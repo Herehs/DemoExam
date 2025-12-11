@@ -141,8 +141,8 @@ class Ui_Login(object):
         self.guest_button.setText(_translate("Login", "Войти как гость"))
         self.label.setPixmap(QtGui.QPixmap("res/icons/Icon.png"))
 
-        self.login_input.setText("94d5ous@gmail.com")
-        self.password_input.setText("uzWC67")
+        # self.login_input.setText("94d5ous@gmail.com")
+        # self.password_input.setText("uzWC67")
 
 
 if __name__ == "__main__":
