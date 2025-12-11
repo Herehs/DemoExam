@@ -1,0 +1,479 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="89662cca-3035-4b44-9179-e45e77e51b53" name="Changes" comment="релиз!!!! но, баг всё ещё с нами, но это не баг, это фича =)" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <favorite-branches>
+      <branch-storage>
+        <map>
+          <entry type="REMOTE">
+            <value>
+              <list>
+                <branch-info repo="$PROJECT_DIR$" source="origin/backend" />
+              </list>
+            </value>
+          </entry>
+        </map>
+      </branch-storage>
+    </favorite-branches>
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="ustal" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Herehs&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Herehs/DemoExam.git&quot;,
+    &quot;accountId&quot;: &quot;f237303d-76d2-4d72-8d3d-a2b913589d73&quot;
+  }
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
+  <component name="ProjectId" id="36O5lW9aWYaSSOqduaOCkLhJII3" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "Python.database.executor": "Run",
+    "Python.login_window.executor": "Run",
+    "Python.main.executor": "Run",
+    "Python.order_data.executor": "Run",
+    "Python.order_edit_window.executor": "Run",
+    "Python.order_list_window.executor": "Run",
+    "Python.products.executor": "Run",
+    "Python.products3.executor": "Run",
+    "Python.res.executor": "Run",
+    "Python.widget.executor": "Run",
+    "Python.widget2.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "/home/me/PycharmProjects/DemoExam/presentation/Edit_order_UI",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/presentation/Edit_order_UI" />
+      <recent name="$PROJECT_DIR$/presentation/Order_list_UI" />
+      <recent name="$PROJECT_DIR$/res/icons" />
+      <recent name="$PROJECT_DIR$/res/images" />
+      <recent name="$PROJECT_DIR$/res" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/presentation/Order_list_UI/ui" />
+      <recent name="$PROJECT_DIR$/res/images" />
+      <recent name="$PROJECT_DIR$/presentation/Edit_order_UI" />
+      <recent name="$PROJECT_DIR$/presentation/Product_edit_UI" />
+      <recent name="$PROJECT_DIR$/presentation/Product_list_UI" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Python.main">
+    <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="DemoExam" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="order_data" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="DemoExam" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/presentation/Order_list_UI" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/presentation/Order_list_UI/order_data.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="order_edit_window" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="DemoExam" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/presentation/Edit_order_UI" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/presentation/Edit_order_UI/order_edit_window.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="order_list_window" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="DemoExam" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/presentation/Order_list_UI" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/presentation/Order_list_UI/order_list_window.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="widget" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="DemoExam" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/presentation/Product_list_UI" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/presentation/Product_list_UI/widget.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.main" />
+        <item itemvalue="Python.order_edit_window" />
+        <item itemvalue="Python.order_data" />
+        <item itemvalue="Python.order_list_window" />
+        <item itemvalue="Python.widget" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-python-sdk-a101402ee41c-968fe969f28a-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-252.28238.29" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="89662cca-3035-4b44-9179-e45e77e51b53" name="Changes" comment="" />
+      <created>1764864930196</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1764864930196</updated>
+    </task>
+    <task id="LOCAL-00001" summary="initial commit">
+      <option name="closed" value="true" />
+      <created>1764870721938</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1764870721938</updated>
+    </task>
+    <task id="LOCAL-00002" summary=" 2 рабочих окна и переход между ними">
+      <option name="closed" value="true" />
+      <created>1764872017320</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1764872017320</updated>
+    </task>
+    <task id="LOCAL-00003" summary="авторизация не пропускает случайных людей">
+      <option name="closed" value="true" />
+      <created>1764875275157</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1764875275157</updated>
+    </task>
+    <task id="LOCAL-00004" summary="переделал структуру проекта">
+      <option name="closed" value="true" />
+      <created>1764923552611</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1764923552611</updated>
+    </task>
+    <task id="LOCAL-00005" summary="переделал структуру проекта">
+      <option name="closed" value="true" />
+      <created>1764923593550</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1764923593550</updated>
+    </task>
+    <task id="LOCAL-00006" summary="оно грузит из базы данных товары и подтягивает изображение">
+      <option name="closed" value="true" />
+      <created>1764960829643</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1764960829643</updated>
+    </task>
+    <task id="LOCAL-00007" summary="оно грузит из базы данных товары и подтягивает изображение">
+      <option name="closed" value="true" />
+      <created>1765018082156</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1765018082156</updated>
+    </task>
+    <task id="LOCAL-00008" summary="оно грузит из базы данных товары и подтягивает изображение">
+      <option name="closed" value="true" />
+      <created>1765018097374</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1765018097374</updated>
+    </task>
+    <task id="LOCAL-00009" summary="оно грузит из базы данных товары и подтягивает изображение">
+      <option name="closed" value="true" />
+      <created>1765021186820</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1765021186820</updated>
+    </task>
+    <task id="LOCAL-00010" summary="оно грузит из базы данных товары и подтягивает изображение">
+      <option name="closed" value="true" />
+      <created>1765021230538</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1765021230538</updated>
+    </task>
+    <task id="LOCAL-00011" summary="починил стили и карточку">
+      <option name="closed" value="true" />
+      <created>1765108486737</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1765108486737</updated>
+    </task>
+    <task id="LOCAL-00012" summary="оно редактирует товары + был добавлен баг">
+      <option name="closed" value="true" />
+      <created>1765188476812</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1765188476812</updated>
+    </task>
+    <task id="LOCAL-00013" summary="оно теперь добавляет и удаляет товары, к сожалению баг был убран =(">
+      <option name="closed" value="true" />
+      <created>1765221445628</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1765221445628</updated>
+    </task>
+    <task id="LOCAL-00014" summary="добавлен поиск, баг вернулся =)">
+      <option name="closed" value="true" />
+      <created>1765268957706</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1765268957706</updated>
+    </task>
+    <task id="LOCAL-00015" summary="написал комментарии, изменил поиск, баг всё ещё с нами, но это фича =)">
+      <option name="closed" value="true" />
+      <created>1765301417005</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1765301417005</updated>
+    </task>
+    <task id="LOCAL-00016" summary=", баг всё ещё с нами, но это фича =)">
+      <option name="closed" value="true" />
+      <created>1765438068796</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1765438068796</updated>
+    </task>
+    <task id="LOCAL-00017" summary="релиз!!!! но, баг всё ещё с нами, но это не баг, это фича =)">
+      <option name="closed" value="true" />
+      <created>1765468458199</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1765468458199</updated>
+    </task>
+    <task id="LOCAL-00018" summary="релиз!!!! но, баг всё ещё с нами, но это не баг, это фича =)">
+      <option name="closed" value="true" />
+      <created>1765470267566</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1765470267566</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="initial commit" />
+    <MESSAGE value=" 2 рабочих окна и переход между ними" />
+    <MESSAGE value="авторизация не пропускает случайных людей" />
+    <MESSAGE value="переделал структуру проекта" />
+    <MESSAGE value="оно грузит из базы данных товары и подтягивает изображение" />
+    <MESSAGE value="починил стили и карточку" />
+    <MESSAGE value="оно редактирует товары + был добавлен баг" />
+    <MESSAGE value="оно теперь добавляет и удаляет товары, к сожалению баг был убран =(" />
+    <MESSAGE value="добавлен поиск, баг вернулся =)" />
+    <MESSAGE value="написал комментарии, изменил поиск, баг всё ещё с нами, но это фича =)" />
+    <MESSAGE value=", баг всё ещё с нами, но это фича =)" />
+    <MESSAGE value="релиз!!!! но, баг всё ещё с нами, но это не баг, это фича =)" />
+    <option name="LAST_COMMIT_MESSAGE" value="релиз!!!! но, баг всё ещё с нами, но это не баг, это фича =)" />
+  </component>
+  <component name="XDebuggerManager">
+    <watches-manager>
+      <configuration name="PythonConfigurationType">
+        <watch expression="self.old_photo_path" />
+      </configuration>
+    </watches-manager>
+  </component>
+  <component name="com.gk646.codestats.settings.Save">
+    <option name="commitTimePoints">
+      <list>
+        <TimePoint>
+          <option name="timestamp" value="1765301417103" />
+          <option name="linesCode" value="2411" />
+          <option name="totalLines" value="6269" />
+          <option name="info" value="написал комментарии, изменил поиск, баг всё ещё с " />
+        </TimePoint>
+        <TimePoint>
+          <option name="timestamp" value="1765438068899" />
+          <option name="linesCode" value="2448" />
+          <option name="totalLines" value="6749" />
+          <option name="info" value=", баг всё ещё с нами, но это фича =)" />
+        </TimePoint>
+        <TimePoint>
+          <option name="timestamp" value="1765468458277" />
+          <option name="linesCode" value="2606" />
+          <option name="totalLines" value="6689" />
+          <option name="info" value="релиз!!!! но, баг всё ещё с нами, но это не баг, э" />
+        </TimePoint>
+        <TimePoint>
+          <option name="timestamp" value="1765470267643" />
+          <option name="linesCode" value="2132" />
+          <option name="totalLines" value="5017" />
+          <option name="info" value="релиз!!!! но, баг всё ещё с нами, но это не баг, э" />
+        </TimePoint>
+      </list>
+    </option>
+    <option name="genericTimePoints">
+      <list>
+        <TimePoint>
+          <option name="timestamp" value="1765270116211" />
+          <option name="linesCode" value="2410" />
+          <option name="totalLines" value="6252" />
+          <option name="info" value="9 дек. 2025 г." />
+        </TimePoint>
+        <TimePoint>
+          <option name="timestamp" value="1765301417103" />
+          <option name="linesCode" value="2411" />
+          <option name="totalLines" value="6269" />
+          <option name="info" value="9 дек. 2025 г." />
+        </TimePoint>
+        <TimePoint>
+          <option name="timestamp" value="1765389558062" />
+          <option name="linesCode" value="2337" />
+          <option name="totalLines" value="6267" />
+          <option name="info" value="10 дек. 2025 г." />
+        </TimePoint>
+        <TimePoint>
+          <option name="timestamp" value="1765438068899" />
+          <option name="linesCode" value="2448" />
+          <option name="totalLines" value="6749" />
+          <option name="info" value="11 дек. 2025 г." />
+        </TimePoint>
+        <TimePoint>
+          <option name="timestamp" value="1765470267643" />
+          <option name="linesCode" value="2132" />
+          <option name="totalLines" value="5017" />
+          <option name="info" value="11 дек. 2025 г." />
+        </TimePoint>
+      </list>
+    </option>
+  </component>
+</project>
