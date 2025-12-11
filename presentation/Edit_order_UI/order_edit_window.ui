@@ -18,8 +18,46 @@
     <layout class="QVBoxLayout" name="verticalLayout">
      <item>
       <layout class="QGridLayout" name="gridLayout">
-       <item row="10" column="0">
-        <widget class="QLabel" name="label_4">
+       <item row="13" column="0">
+        <widget class="QDateEdit" name="date_order">
+         <property name="font">
+          <font>
+           <family>Times New Roman</family>
+           <pointsize>10</pointsize>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">#date_order {
+    border: 1px solid black;
+}
+
+#date_order:focus {
+    border-color: #00FA9A;
+}</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QLineEdit" name="articul_input">
+         <property name="font">
+          <font>
+           <family>Times New Roman</family>
+           <pointsize>10</pointsize>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">#articul_input {
+    border: 1px solid black;
+}
+
+#articul_input:focus {
+    border-color: #00FA9A;
+}</string>
+         </property>
+        </widget>
+       </item>
+       <item row="8" column="0">
+        <widget class="QLabel" name="product_name">
          <property name="font">
           <font>
            <family>Times New Roman</family>
@@ -27,7 +65,92 @@
           </font>
          </property>
          <property name="text">
-          <string>Дата заказа:</string>
+          <string>Товар:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="9" column="0">
+        <widget class="QComboBox" name="product_input">
+         <property name="font">
+          <font>
+           <family>Times New Roman</family>
+           <pointsize>10</pointsize>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">#product_input {
+    border: 1px solid black;
+}
+
+#product_input:hover {
+    border-color: #00FA9A;
+}</string>
+         </property>
+         <item>
+          <property name="text">
+           <string>Не выбран</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+       <item row="14" column="0">
+        <widget class="QLabel" name="label_5">
+         <property name="font">
+          <font>
+           <family>Times New Roman</family>
+           <pointsize>11</pointsize>
+          </font>
+         </property>
+         <property name="text">
+          <string>Дата доставки:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="10" column="0">
+        <widget class="QLabel" name="count_order">
+         <property name="font">
+          <font>
+           <family>Times New Roman</family>
+           <pointsize>11</pointsize>
+          </font>
+         </property>
+         <property name="text">
+          <string>Количество товара:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="15" column="0">
+        <widget class="QDateEdit" name="delivery_date">
+         <property name="font">
+          <font>
+           <family>Times New Roman</family>
+           <pointsize>10</pointsize>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">#delivery_date {
+    border: 1px solid black;
+}
+
+#delivery_date:focus {
+    border-color: #00FA9A;
+}</string>
+         </property>
+         <property name="dateTime">
+          <datetime>
+           <hour>0</hour>
+           <minute>0</minute>
+           <second>0</second>
+           <year>1999</year>
+           <month>12</month>
+           <day>30</day>
+          </datetime>
+         </property>
+         <property name="displayFormat">
+          <string>dd.MM.yyyy</string>
+         </property>
+         <property name="calendarPopup">
+          <bool>false</bool>
          </property>
         </widget>
        </item>
@@ -45,7 +168,46 @@
          </property>
         </widget>
        </item>
-       <item row="9" column="0">
+       <item row="5" column="0">
+        <widget class="QComboBox" name="adres_input">
+         <property name="styleSheet">
+          <string notr="true">#adres_input {
+    border: 1px solid black;
+}
+
+#adres_input:hover {
+    border-color: #00FA9A;
+}</string>
+         </property>
+         <item>
+          <property name="text">
+           <string>Не выбран</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+       <item row="7" column="0">
+        <widget class="QComboBox" name="client_name_input">
+         <property name="mouseTracking">
+          <bool>true</bool>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">#client_name_input {
+    border: 1px solid black;
+}
+
+#client_name_input:hover {
+    border-color: #00FA9A;
+}</string>
+         </property>
+         <item>
+          <property name="text">
+           <string>Не выбрано</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+       <item row="11" column="0">
         <widget class="QLineEdit" name="count_input">
          <property name="styleSheet">
           <string notr="true">#count_input {
@@ -55,19 +217,6 @@
 #count_input:focus {
     border-color: #00FA9A;
 }</string>
-         </property>
-        </widget>
-       </item>
-       <item row="12" column="0">
-        <widget class="QLabel" name="label_5">
-         <property name="font">
-          <font>
-           <family>Times New Roman</family>
-           <pointsize>11</pointsize>
-          </font>
-         </property>
-         <property name="text">
-          <string>Дата доставки:</string>
          </property>
         </widget>
        </item>
@@ -81,6 +230,19 @@
          </property>
          <property name="text">
           <string>Адрес ПВЗ:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="12" column="0">
+        <widget class="QLabel" name="label_4">
+         <property name="font">
+          <font>
+           <family>Times New Roman</family>
+           <pointsize>11</pointsize>
+          </font>
+         </property>
+         <property name="text">
+          <string>Дата заказа:</string>
          </property>
         </widget>
        </item>
@@ -127,7 +289,7 @@
         </widget>
        </item>
        <item row="6" column="0">
-        <widget class="QLabel" name="product_name">
+        <widget class="QLabel" name="Client_name">
          <property name="font">
           <font>
            <family>Times New Roman</family>
@@ -135,131 +297,8 @@
           </font>
          </property>
          <property name="text">
-          <string>Товар:</string>
+          <string>Имя пользователя:</string>
          </property>
-        </widget>
-       </item>
-       <item row="13" column="0">
-        <widget class="QDateEdit" name="delivery_date">
-         <property name="font">
-          <font>
-           <family>Times New Roman</family>
-           <pointsize>10</pointsize>
-          </font>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">#delivery_date {
-    border: 1px solid black;
-}
-
-#delivery_date:focus {
-    border-color: #00FA9A;
-}</string>
-         </property>
-         <property name="dateTime">
-          <datetime>
-           <hour>0</hour>
-           <minute>0</minute>
-           <second>0</second>
-           <year>1999</year>
-           <month>12</month>
-           <day>31</day>
-          </datetime>
-         </property>
-         <property name="displayFormat">
-          <string>dd.MM.yyyy</string>
-         </property>
-         <property name="calendarPopup">
-          <bool>false</bool>
-         </property>
-        </widget>
-       </item>
-       <item row="8" column="0">
-        <widget class="QLabel" name="count_order">
-         <property name="font">
-          <font>
-           <family>Times New Roman</family>
-           <pointsize>11</pointsize>
-          </font>
-         </property>
-         <property name="text">
-          <string>Количество товара:</string>
-         </property>
-        </widget>
-       </item>
-       <item row="5" column="0">
-        <widget class="QComboBox" name="adres_input">
-         <property name="styleSheet">
-          <string notr="true">#adres_input {
-    border: 1px solid black;
-}
-
-#adres_input:hover {
-    border-color: #00FA9A;
-}</string>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="0">
-        <widget class="QLineEdit" name="articul_input">
-         <property name="font">
-          <font>
-           <family>Times New Roman</family>
-           <pointsize>10</pointsize>
-          </font>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">#articul_input {
-    border: 1px solid black;
-}
-
-#articul_input:focus {
-    border-color: #00FA9A;
-}</string>
-         </property>
-        </widget>
-       </item>
-       <item row="11" column="0">
-        <widget class="QDateEdit" name="date_order">
-         <property name="font">
-          <font>
-           <family>Times New Roman</family>
-           <pointsize>10</pointsize>
-          </font>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">#date_order {
-    border: 1px solid black;
-}
-
-#date_order:focus {
-    border-color: #00FA9A;
-}</string>
-         </property>
-        </widget>
-       </item>
-       <item row="7" column="0">
-        <widget class="QComboBox" name="product_input">
-         <property name="font">
-          <font>
-           <family>Times New Roman</family>
-           <pointsize>10</pointsize>
-          </font>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">#product_input {
-    border: 1px solid black;
-}
-
-#product_input:hover {
-    border-color: #00FA9A;
-}</string>
-         </property>
-         <item>
-          <property name="text">
-           <string>Не выбран</string>
-          </property>
-         </item>
         </widget>
        </item>
       </layout>
