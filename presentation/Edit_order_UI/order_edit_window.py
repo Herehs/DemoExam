@@ -12,57 +12,45 @@ from PyQt6 import QtCore, QtGui, QtWidgets
 class Ui_order_edit(object):
     def setupUi(self, order_edit):
         order_edit.setObjectName("order_edit")
-        order_edit.resize(378, 549)
+        order_edit.resize(400, 400)
         self.gridLayout_2 = QtWidgets.QGridLayout(order_edit)
         self.gridLayout_2.setObjectName("gridLayout_2")
         self.verticalLayout = QtWidgets.QVBoxLayout()
         self.verticalLayout.setObjectName("verticalLayout")
         self.gridLayout = QtWidgets.QGridLayout()
         self.gridLayout.setObjectName("gridLayout")
-        self.articul_input = QtWidgets.QLineEdit(parent=order_edit)
+        self.label_4 = QtWidgets.QLabel(parent=order_edit)
         font = QtGui.QFont()
         font.setFamily("Times New Roman")
-        font.setPointSize(10)
-        self.articul_input.setFont(font)
-        self.articul_input.setStyleSheet("#articul_input {\n"
+        font.setPointSize(11)
+        self.label_4.setFont(font)
+        self.label_4.setObjectName("label_4")
+        self.gridLayout.addWidget(self.label_4, 10, 0, 1, 1)
+        self.label = QtWidgets.QLabel(parent=order_edit)
+        font = QtGui.QFont()
+        font.setFamily("Times New Roman")
+        font.setPointSize(11)
+        font.setBold(False)
+        self.label.setFont(font)
+        self.label.setObjectName("label")
+        self.gridLayout.addWidget(self.label, 0, 0, 1, 1)
+        self.count_input = QtWidgets.QLineEdit(parent=order_edit)
+        self.count_input.setStyleSheet("#count_input {\n"
 "    border: 1px solid black;\n"
 "}\n"
 "\n"
-"#articul_input:focus {\n"
+"#count_input:focus {\n"
 "    border-color: #00FA9A;\n"
 "}")
-        self.articul_input.setObjectName("articul_input")
-        self.gridLayout.addWidget(self.articul_input, 1, 0, 1, 1)
-        self.delivery_date = QtWidgets.QDateEdit(parent=order_edit)
+        self.count_input.setObjectName("count_input")
+        self.gridLayout.addWidget(self.count_input, 9, 0, 1, 1)
+        self.label_5 = QtWidgets.QLabel(parent=order_edit)
         font = QtGui.QFont()
         font.setFamily("Times New Roman")
-        font.setPointSize(10)
-        self.delivery_date.setFont(font)
-        self.delivery_date.setStyleSheet("#delivery_date {\n"
-"    border: 1px solid black;\n"
-"}\n"
-"\n"
-"#delivery_date:focus {\n"
-"    border-color: #00FA9A;\n"
-"}")
-        self.delivery_date.setDateTime(QtCore.QDateTime(QtCore.QDate(2000, 1, 1), QtCore.QTime(0, 0, 0)))
-        self.delivery_date.setCalendarPopup(False)
-        self.delivery_date.setObjectName("delivery_date")
-        self.gridLayout.addWidget(self.delivery_date, 9, 0, 1, 1)
-        self.date_order = QtWidgets.QDateEdit(parent=order_edit)
-        font = QtGui.QFont()
-        font.setFamily("Times New Roman")
-        font.setPointSize(10)
-        self.date_order.setFont(font)
-        self.date_order.setStyleSheet("#date_order {\n"
-"    border: 1px solid black;\n"
-"}\n"
-"\n"
-"#date_order:focus {\n"
-"    border-color: #00FA9A;\n"
-"}")
-        self.date_order.setObjectName("date_order")
-        self.gridLayout.addWidget(self.date_order, 7, 0, 1, 1)
+        font.setPointSize(11)
+        self.label_5.setFont(font)
+        self.label_5.setObjectName("label_5")
+        self.gridLayout.addWidget(self.label_5, 12, 0, 1, 1)
         self.label_3 = QtWidgets.QLabel(parent=order_edit)
         font = QtGui.QFont()
         font.setFamily("Times New Roman")
@@ -70,22 +58,6 @@ class Ui_order_edit(object):
         self.label_3.setFont(font)
         self.label_3.setObjectName("label_3")
         self.gridLayout.addWidget(self.label_3, 4, 0, 1, 1)
-        self.label_2 = QtWidgets.QLabel(parent=order_edit)
-        font = QtGui.QFont()
-        font.setFamily("Times New Roman")
-        font.setPointSize(11)
-        self.label_2.setFont(font)
-        self.label_2.setObjectName("label_2")
-        self.gridLayout.addWidget(self.label_2, 2, 0, 1, 1)
-        self.label = QtWidgets.QLabel(parent=order_edit)
-        font = QtGui.QFont()
-        font.setFamily("Times New Roman")
-        font.setPointSize(11)
-        font.setBold(False)
-        font.setWeight(50)
-        self.label.setFont(font)
-        self.label.setObjectName("label")
-        self.gridLayout.addWidget(self.label, 0, 0, 1, 1)
         self.status_input = QtWidgets.QComboBox(parent=order_edit)
         font = QtGui.QFont()
         font.setFamily("Times New Roman")
@@ -102,35 +74,99 @@ class Ui_order_edit(object):
         self.status_input.addItem("")
         self.status_input.addItem("")
         self.gridLayout.addWidget(self.status_input, 3, 0, 1, 1)
-        self.adres_pvz_input = QtWidgets.QTextEdit(parent=order_edit)
+        self.label_2 = QtWidgets.QLabel(parent=order_edit)
+        font = QtGui.QFont()
+        font.setFamily("Times New Roman")
+        font.setPointSize(11)
+        self.label_2.setFont(font)
+        self.label_2.setObjectName("label_2")
+        self.gridLayout.addWidget(self.label_2, 2, 0, 1, 1)
+        self.product_name = QtWidgets.QLabel(parent=order_edit)
+        font = QtGui.QFont()
+        font.setFamily("Times New Roman")
+        font.setPointSize(11)
+        self.product_name.setFont(font)
+        self.product_name.setObjectName("product_name")
+        self.gridLayout.addWidget(self.product_name, 6, 0, 1, 1)
+        self.delivery_date = QtWidgets.QDateEdit(parent=order_edit)
         font = QtGui.QFont()
         font.setFamily("Times New Roman")
         font.setPointSize(10)
-        self.adres_pvz_input.setFont(font)
-        self.adres_pvz_input.setStyleSheet("#adres_pvz_input {\n"
+        self.delivery_date.setFont(font)
+        self.delivery_date.setStyleSheet("#delivery_date {\n"
 "    border: 1px solid black;\n"
 "}\n"
 "\n"
-"#adres_pvz_input:focus {\n"
+"#delivery_date:focus {\n"
 "    border-color: #00FA9A;\n"
 "}")
-        self.adres_pvz_input.setObjectName("adres_pvz_input")
-        self.gridLayout.addWidget(self.adres_pvz_input, 5, 0, 1, 1)
-        self.label_5 = QtWidgets.QLabel(parent=order_edit)
+        self.delivery_date.setDateTime(QtCore.QDateTime(QtCore.QDate(1999, 12, 31), QtCore.QTime(0, 0, 0)))
+        self.delivery_date.setCalendarPopup(False)
+        self.delivery_date.setObjectName("delivery_date")
+        self.gridLayout.addWidget(self.delivery_date, 13, 0, 1, 1)
+        self.count_order = QtWidgets.QLabel(parent=order_edit)
         font = QtGui.QFont()
         font.setFamily("Times New Roman")
         font.setPointSize(11)
-        self.label_5.setFont(font)
-        self.label_5.setObjectName("label_5")
-        self.gridLayout.addWidget(self.label_5, 8, 0, 1, 1)
-        self.label_4 = QtWidgets.QLabel(parent=order_edit)
+        self.count_order.setFont(font)
+        self.count_order.setObjectName("count_order")
+        self.gridLayout.addWidget(self.count_order, 8, 0, 1, 1)
+        self.adres_input = QtWidgets.QComboBox(parent=order_edit)
+        self.adres_input.setStyleSheet("#adres_input {\n"
+"    border: 1px solid black;\n"
+"}\n"
+"\n"
+"#adres_input:hover {\n"
+"    border-color: #00FA9A;\n"
+"}")
+        self.adres_input.setObjectName("adres_input")
+        self.gridLayout.addWidget(self.adres_input, 5, 0, 1, 1)
+        self.articul_input = QtWidgets.QLineEdit(parent=order_edit)
         font = QtGui.QFont()
         font.setFamily("Times New Roman")
-        font.setPointSize(11)
-        self.label_4.setFont(font)
-        self.label_4.setObjectName("label_4")
-        self.gridLayout.addWidget(self.label_4, 6, 0, 1, 1)
+        font.setPointSize(10)
+        self.articul_input.setFont(font)
+        self.articul_input.setStyleSheet("#articul_input {\n"
+"    border: 1px solid black;\n"
+"}\n"
+"\n"
+"#articul_input:focus {\n"
+"    border-color: #00FA9A;\n"
+"}")
+        self.articul_input.setObjectName("articul_input")
+        self.gridLayout.addWidget(self.articul_input, 1, 0, 1, 1)
+        self.date_order = QtWidgets.QDateEdit(parent=order_edit)
+        font = QtGui.QFont()
+        font.setFamily("Times New Roman")
+        font.setPointSize(10)
+        self.date_order.setFont(font)
+        self.date_order.setStyleSheet("#date_order {\n"
+"    border: 1px solid black;\n"
+"}\n"
+"\n"
+"#date_order:focus {\n"
+"    border-color: #00FA9A;\n"
+"}")
+        self.date_order.setObjectName("date_order")
+        self.gridLayout.addWidget(self.date_order, 11, 0, 1, 1)
+        self.product_input = QtWidgets.QComboBox(parent=order_edit)
+        font = QtGui.QFont()
+        font.setFamily("Times New Roman")
+        font.setPointSize(10)
+        self.product_input.setFont(font)
+        self.product_input.setStyleSheet("#product_input {\n"
+"    border: 1px solid black;\n"
+"}\n"
+"\n"
+"#product_input:hover {\n"
+"    border-color: #00FA9A;\n"
+"}")
+        self.product_input.setObjectName("product_input")
+        self.product_input.addItem("")
+        self.gridLayout.addWidget(self.product_input, 7, 0, 1, 1)
         self.verticalLayout.addLayout(self.gridLayout)
+        spacerItem = QtWidgets.QSpacerItem(20, 20, QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Expanding)
+        self.verticalLayout.addItem(spacerItem)
         self.horizontalLayout = QtWidgets.QHBoxLayout()
         self.horizontalLayout.setObjectName("horizontalLayout")
         self.save_button = QtWidgets.QPushButton(parent=order_edit)
@@ -174,14 +210,17 @@ class Ui_order_edit(object):
     def retranslateUi(self, order_edit):
         _translate = QtCore.QCoreApplication.translate
         order_edit.setWindowTitle(_translate("order_edit", "Dialog"))
-        self.delivery_date.setDisplayFormat(_translate("order_edit", "dd.MM.yyyy"))
-        self.label_3.setText(_translate("order_edit", "Адрес ПВЗ:"))
-        self.label_2.setText(_translate("order_edit", "Статус заказа:"))
+        self.label_4.setText(_translate("order_edit", "Дата заказа:"))
         self.label.setText(_translate("order_edit", "Артикул заказа:"))
+        self.label_5.setText(_translate("order_edit", "Дата доставки:"))
+        self.label_3.setText(_translate("order_edit", "Адрес ПВЗ:"))
         self.status_input.setItemText(0, _translate("order_edit", "Новый"))
         self.status_input.setItemText(1, _translate("order_edit", "Завершен"))
-        self.label_5.setText(_translate("order_edit", "Дата доставки:"))
-        self.label_4.setText(_translate("order_edit", "Дата заказа:"))
+        self.label_2.setText(_translate("order_edit", "Статус заказа:"))
+        self.product_name.setText(_translate("order_edit", "Товар:"))
+        self.delivery_date.setDisplayFormat(_translate("order_edit", "dd.MM.yyyy"))
+        self.count_order.setText(_translate("order_edit", "Количество товара:"))
+        self.product_input.setItemText(0, _translate("order_edit", "Не выбран"))
         self.save_button.setText(_translate("order_edit", "Сохранить"))
         self.cancel_button.setText(_translate("order_edit", "Отмена"))
 

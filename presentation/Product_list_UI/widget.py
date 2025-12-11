@@ -192,9 +192,16 @@ class ProductCardUI(QWidget, CardUI):
         else:
             self.label_47.setText(f"Цена: <span>{float(self.price):.2f}</span>")
 
+
         self.label_48.setText(f"Еденица измерения: {unit}")
         self.label_49.setText(f"Количество на складе: {quantity}")
         self.sale_11.setText(f"Скидка: {discount_percent}%")
+
+        if int(self.discount_percent) >= 15:
+            self.sale_11.setText(f"<span style='text-decoration: line-through; color: #FF0000;'> </span>")
+        else:
+            self.sale_11.setText(f"Скидка: {discount_percent}%")
+
 
         self.photo_10.setText("")
         self.photo_10.setPixmap(QtGui.QPixmap(f"res/images/{image_path}"))

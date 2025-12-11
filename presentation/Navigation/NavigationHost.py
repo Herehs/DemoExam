@@ -1,9 +1,12 @@
 from functools import partial
 
-from PyQt6 import QtCore, QtWidgets
-from PyQt6.QtWidgets import QMainWindow, QStackedWidget, QWidget, QLabel, QDialog
+from PyQt6.QtCore import QDate, Qt
+from PyQt6.QtWidgets import QMainWindow, QStackedWidget, QDialog, QListView
 
+from presentation.Edit_order_UI.order_edit_window import Ui_order_edit
 from presentation.Login_UI.login_window import Ui_Login
+from presentation.Order_list_UI.order_data import OrderDataWidget
+from presentation.Order_list_UI.order_list_window import Ui_Dialog
 from presentation.Product_list_UI.products import Ui_List_of_products
 from presentation.Product_list_UI.widget import ProductCardUI
 from presentation.Product_edit_UI.product_edit_window import product_edit_window, product_add_window
@@ -143,12 +146,11 @@ class List_of_products_screen_UI(QMainWindow, Ui_List_of_products):
         self.logout_button.clicked.connect(self.handle_logout)
         self.add_product_button.clicked.connect(self.add_product)
         self.delete_product_button.clicked.connect(self.delete_product)
+        self.order_button.clicked.connect(self.goto_orders)
 
         self.search_input.textChanged.connect(self.apply_filters)
         self.sort_input.currentIndexChanged.connect(self.apply_filters)
         self.provider_input.currentIndexChanged.connect(self.apply_filters)
-
-
 
     # ----- ОБРАБОТКА УДАЛЕНИЯ ТОВАРА -----
     def delete_product(self):
@@ -169,6 +171,13 @@ class List_of_products_screen_UI(QMainWindow, Ui_List_of_products):
         res = dlg.exec()
         if res == QDialog.DialogCode.Accepted:
             self.refresh_cards()
+
+    def goto_orders(self):
+        dlg = OrderListWindow(self.db)
+        dlg.setMinimumWidth(600)
+        dlg.connect_signals()
+
+        dlg.exec()
 
     # ----- ОБРАБОТКА ВЫХОДА -----
     def handle_logout(self):
@@ -305,10 +314,10 @@ class List_of_products_screen_UI(QMainWindow, Ui_List_of_products):
 
         # фильтр по возрастанию/убыванию цены
         try:
-            if sort_mode == "Цена по возрастанию":
-                filtered = sorted(filtered, key=lambda c: float(c.price))
-            elif sort_mode == "Цена по убыванию":
-                filtered = sorted(filtered, key=lambda c: float(c.price), reverse=True)
+            if sort_mode == "Количество по возрастанию":
+                filtered = sorted(filtered, key=lambda c: float(c.quantity))
+            elif sort_mode == "Количество по убыванию":
+                filtered = sorted(filtered, key=lambda c: float(c.quantity), reverse=True)
         except:
             pass
 
@@ -322,8 +331,185 @@ class List_of_products_screen_UI(QMainWindow, Ui_List_of_products):
         for card in filtered:
             self.scrollLayout.addWidget(card)
 
+class OrderListWindow(QDialog, Ui_Dialog):
+    def __init__(self, db):
+        super().__init__()
+        self.db = db
+        self.cards = []
+        self.selected_card = None
+        self.setupUi(self)
+        self.refreshOrders()
 
 
+    def card_clicked(self, card):
+        if self.selected_card and self.selected_card != card:
+            self.selected_card.set_selected(False)
+
+        self.selected_card = card
+        card.set_selected(True)
+
+    # ----- ОБРАБОТКА ДВОЙНОГО КЛИКА (ВЫЗОВ ОКНА РЕДАКТИРОВАНИЯ) -----
+    def card_double_clicked(self, card):
+
+        dlg2 = EditOrderWindow(77, self.db)
+        dlg2.set_data(id=card.id, status=card.status,
+                      address=card.address, order_date=card.order_date, delivery_date=card.delivery_date)
+        dlg2.connect_signals()
+
+        res = dlg2.exec()
+        if res == QDialog.DialogCode.Accepted:
+            self.refreshOrders()
+
+    def refreshOrders(self):
+        # удалить старые карточки
+        while self.verticalLayout_12.count():
+            item = self.verticalLayout_12.takeAt(0)
+            w = item.widget()
+            if w:
+                w.setParent(None)
+        #-------------------------
+        self.cards = []
+
+        query = """
+                SELECT o.product_id, o.order_id, o.order_status, p.address, o.order_date, o.delivery_date
+                FROM orders as o
+                JOIN pick_up_point as p
+                ON o.pick_up_point_id = p.pick_up_point_id;
+           """
+
+        try:
+            result = self.db.execute_query(query, fetch=True)
+            if result:
+                for row in result:
+                    print(row)
+                    product_id, order_id, status, address, order_date, delivery_date = row
+                    order_card = OrderDataWidget(
+                        id= order_id,
+                        status= status,
+                        address= address,
+                        order_date= order_date.strftime("%Y-%m-%d"),
+                        delivery_date= delivery_date.strftime("%Y-%m-%d"),
+                    )
+                    self.cards.append(order_card)
+
+            else:
+                print("Ошибка загрузки заказов.")
+
+
+        except Exception as e:
+            print(f"Ошибка загрузки заказов: {e}")
+
+        for card in self.cards:
+            card.clicked.connect(partial(self.card_clicked, card))
+            card.doubleClicked.connect(partial(self.card_double_clicked, card))
+            print(f"Создана карточка заказа: {order_card}")
+            self.verticalLayout_12.addWidget(card)
+
+    def connect_signals(self):
+        self.order_button_back.clicked.connect(self.close)
+
+
+
+class AddOrderWindow(QDialog, Ui_order_edit):
+    def __init__(self, user_id, db):
+        super().__init__()
+        self.setupUi(self)
+        self.user_id = user_id
+        self.quantity = 1
+        self.db = db
+        self.fetch_products()
+        self.fetch_pick_up_points()
+
+
+    def connect_signals(self):
+        self.save_button.clicked.connect(self.save_to_db)
+        self.save_button.clicked.connect(self.accept)
+
+    def save_to_db(self):
+        query = """
+                    UPDATE orders SET
+                        
+                    WHERE product_id = %s;
+                """
+        params = (
+
+            self.status_input.text(),
+            self.adres_input.currentText(),
+            self.date_order.toPlainText(),
+            self.delivery_date.text(),
+
+            self.articul_input.currentText(),
+        )
+        try:
+            result = self.db.execute_query(query, params, fetch=False)
+            if not result:
+                print("Ошибка добавления.")
+
+        except Exception as e:
+            print(f"Ошибка добавления: {e}")
+
+    def fetch_pick_up_points(self):
+        query = """
+                   SELECT DISTINCT address FROM pick_up_point;
+               """
+        try:
+            result = self.db.execute_query(query, fetch=True)
+            self.adres_input.clear()
+
+            if result:
+                for (address,) in result:
+                    print(address)
+                    self.adres_input.addItem(address)
+
+            else:
+                print("Ошибка загрузки заказов.")
+
+        except Exception as e:
+            print(f"Ошибка загрузки заказов: {e}")
+
+    def fetch_products(self):
+        query = """
+                  SELECT product_id, name FROM products;
+              """
+        try:
+            result = self.db.execute_query(query, fetch=True)
+            self.adres_input.clear()
+
+            if result:
+                for row in result:
+                    product_id, name  = row
+                    print(f"АРТ: {product_id}. {name}")
+                    self.product_input.addItem(f"АРТ: {product_id}. {name}")
+
+            else:
+                print("Ошибка загрузки заказов.")
+
+        except Exception as e:
+            print(f"Ошибка загрузки заказов: {e}")
+
+    def save_to_db(self):
+        print("save_to_db")
+
+class EditOrderWindow(AddOrderWindow):
+    def __init__(self, user_id, db):
+        super().__init__(user_id, db= db)
+        self.db = db
+
+    def set_data(self, id, status, address, order_date, delivery_date):
+
+        self.id = id
+        self.status = status
+        self.address = address
+        self.order_date = order_date
+        self.delivery_date_str = delivery_date
+
+
+
+        self.articul_input.setText(f"{self.id}")
+        self.status_input.setCurrentText(self.status)
+        self.cancel_button.clicked.connect(self.close)
+        self.date_order.setDate(QDate.fromString(self.order_date, "yyyy-MM-dd"))
+        self.delivery_date.setDate(QDate.fromString(self.delivery_date_str, "yyyy-MM-dd"))
 
 class WindowManager(QMainWindow):
     def __init__(self, db):
@@ -364,6 +550,7 @@ class WindowManager(QMainWindow):
         elif name == "MainWindow":
             self.setFixedSize(1123, 645)
             self.setWindowTitle("Список товаров")
+
 
         # Переключение окна
         if name in self.windows:

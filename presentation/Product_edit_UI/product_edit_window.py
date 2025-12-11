@@ -62,7 +62,7 @@ class Ui_windowTitle(object):
         self.discount_input.setObjectName("discount_input")
         self.gridLayout_2.addWidget(self.discount_input, 25, 0, 1, 1)
         self.photo = QtWidgets.QLabel(parent=windowTitle)
-        self.photo.setMaximumSize(QtCore.QSize(70, 70))
+        self.photo.setMaximumSize(QtCore.QSize(300, 300))
         self.photo.setLayoutDirection(QtCore.Qt.LayoutDirection.LeftToRight)
         self.photo.setText("")
         self.photo.setPixmap(QtGui.QPixmap("../import/picture.png"))
@@ -373,7 +373,9 @@ class product_edit_window(QDialog, Ui_windowTitle):
         self.save_button.clicked.connect(self.save_to_db)
         self.save_button.clicked.connect(self.delete_old_image)
         self.save_button.clicked.connect(self.accept)
+
         self.cancel_button.clicked.connect(self.close)
+
         self.download_photo.clicked.connect(self.download_photo_click)
 
     def delete_old_image(self):
