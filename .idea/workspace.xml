@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="89662cca-3035-4b44-9179-e45e77e51b53" name="Changes" comment="релиз!!!! но, баг всё ещё с нами, но это не баг, это фича =)" />
+    <list default="true" id="89662cca-3035-4b44-9179-e45e77e51b53" name="Changes" comment="релиииииззз!!!">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -376,7 +378,23 @@
       <option name="project" value="LOCAL" />
       <updated>1765470267566</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="нада">
+      <option name="closed" value="true" />
+      <created>1765472792830</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1765472792830</updated>
+    </task>
+    <task id="LOCAL-00020" summary="релиииииззз!!!">
+      <option name="closed" value="true" />
+      <created>1765472913659</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1765472913659</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -403,7 +421,9 @@
     <MESSAGE value="написал комментарии, изменил поиск, баг всё ещё с нами, но это фича =)" />
     <MESSAGE value=", баг всё ещё с нами, но это фича =)" />
     <MESSAGE value="релиз!!!! но, баг всё ещё с нами, но это не баг, это фича =)" />
-    <option name="LAST_COMMIT_MESSAGE" value="релиз!!!! но, баг всё ещё с нами, но это не баг, это фича =)" />
+    <MESSAGE value="нада" />
+    <MESSAGE value="релиииииззз!!!" />
+    <option name="LAST_COMMIT_MESSAGE" value="релиииииззз!!!" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>
@@ -439,6 +459,17 @@
           <option name="totalLines" value="5017" />
           <option name="info" value="релиз!!!! но, баг всё ещё с нами, но это не баг, э" />
         </TimePoint>
+        <TimePoint>
+          <option name="timestamp" value="1765472792928" />
+          <option name="totalLines" value="1456" />
+          <option name="info" value="нада" />
+        </TimePoint>
+        <TimePoint>
+          <option name="timestamp" value="1765472913697" />
+          <option name="linesCode" value="2130" />
+          <option name="totalLines" value="5017" />
+          <option name="info" value="релиииииззз!!!" />
+        </TimePoint>
       </list>
     </option>
     <option name="genericTimePoints">
@@ -468,8 +499,8 @@
           <option name="info" value="11 дек. 2025 г." />
         </TimePoint>
         <TimePoint>
-          <option name="timestamp" value="1765470267643" />
-          <option name="linesCode" value="2132" />
+          <option name="timestamp" value="1765472913697" />
+          <option name="linesCode" value="2130" />
           <option name="totalLines" value="5017" />
           <option name="info" value="11 дек. 2025 г." />
         </TimePoint>
