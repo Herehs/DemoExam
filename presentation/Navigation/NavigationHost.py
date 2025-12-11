@@ -3,6 +3,7 @@ import re
 from functools import partial
 
 from PyQt6.QtCore import QDate, Qt
+from PyQt6.QtGui import QIcon
 from PyQt6.QtWidgets import QMainWindow, QStackedWidget, QDialog, QListView
 
 from presentation.Edit_order_UI.order_edit_window import Ui_order_edit
@@ -120,28 +121,29 @@ class List_of_products_screen_UI(QMainWindow, Ui_List_of_products):
 
     # ----- ОБРАБОТКА ДВОЙНОГО КЛИКА (ВЫЗОВ ОКНА РЕДАКТИРОВАНИЯ) -----
     def card_double_clicked(self, card):
+        if self.user_role == "Администратор":
+            dlg = product_edit_window(self)
+            dlg.setWindowIcon(QIcon("res/icons/Icon.JPG"))
+            dlg.setWindowTitle("Редактирование товара")
+            dlg.setData(
+                db=self.db,
+                id=card.id,
+                name= f"{card.name}",
+                category= f"{card.category}",
+                description=f"{card.description}",
+                manufacturer=f"{card.manufacturer}",
+                supplier=f"{card.supplier}",
+                price=f"{card.price}",
+                unit=f"{card.unit}",
+                quantity=f"{card.quantity}",
+                discount_percent=f"{card.discount_percent}",
+                image_path= card.image_path,
+            )
+            dlg.connect_signals()
 
-        dlg = product_edit_window(self)
-
-        dlg.setData(
-            db=self.db,
-            id=card.id,
-            name= f"{card.name}",
-            category= f"{card.category}",
-            description=f"{card.description}",
-            manufacturer=f"{card.manufacturer}",
-            supplier=f"{card.supplier}",
-            price=f"{card.price}",
-            unit=f"{card.unit}",
-            quantity=f"{card.quantity}",
-            discount_percent=f"{card.discount_percent}",
-            image_path= card.image_path,
-        )
-        dlg.connect_signals()
-
-        res = dlg.exec()
-        if res == QDialog.DialogCode.Accepted:
-            self.refresh_cards()
+            res = dlg.exec()
+            if res == QDialog.DialogCode.Accepted:
+                self.refresh_cards()
 
     # ----- ПОДКЛЮЧЕНИЕ КНОПОК К ИНТЕРФЕЙСУ -----
     def connect_signals(self):
@@ -167,6 +169,8 @@ class List_of_products_screen_UI(QMainWindow, Ui_List_of_products):
     # ----- ОБРАБОТКА ДОБАВЛЕНИЯ ТОВАРА -----
     def add_product(self):
         dlg = product_add_window(self)
+        dlg.setWindowIcon(QIcon("res/icons/Icon.JPG"))
+        dlg.setWindowTitle("Добавление товара")
         dlg.setData(self.db)
         dlg.connect_signals()
 
@@ -175,7 +179,9 @@ class List_of_products_screen_UI(QMainWindow, Ui_List_of_products):
             self.refresh_cards()
 
     def goto_orders(self):
-        dlg = OrderListWindow(self.db, self.user_role)
+        dlg = OrderListWindow(self.db, self.role)
+        dlg.setWindowIcon(QIcon("res/icons/Icon.JPG"))
+        dlg.setWindowTitle("Заказы")
         dlg.setMinimumWidth(600)
         dlg.connect_signals()
 
@@ -250,17 +256,17 @@ class List_of_products_screen_UI(QMainWindow, Ui_List_of_products):
             self.user_role = user_role
             print(user_role)
 
-            role = user_role.strip()
+            self.role = user_role.strip()
 
-            if role == "Гость":
+            if self.role == "Гость":
                 print("gost zaza")
-            elif role == "Менеджер":
+            elif self.role == "Менеджер":
                 self.sort_input.show()
                 self.provider_input.show()
                 self.search_input.show()
                 self.order_button.show()
                 print("menedjer zaza")
-            elif role == "Администратор":
+            elif self.role == "Администратор":
                 self.sort_input.show()
                 self.provider_input.show()
                 self.search_input.show()
@@ -340,8 +346,10 @@ class OrderListWindow(QDialog, Ui_Dialog):
 
         if user_role != "Администратор":
             self.order_button_remove.hide()
+            self.order_button_add.hide()
         else:
             self.order_button_remove.show()
+            self.order_button_add.show()
 
     def card_clicked(self, card):
         if self.selected_card and self.selected_card != card:
@@ -354,6 +362,8 @@ class OrderListWindow(QDialog, Ui_Dialog):
     def card_double_clicked(self, card):
 
         dlg2 = EditOrderWindow(self.db)
+        dlg2.setWindowIcon(QIcon("res/icons/Icon.JPG"))
+        dlg2.setWindowTitle("Редактирование заказа")
         dlg2.set_data(id=card.id, status=card.status,
                       address=card.address, order_date=card.order_date,
                       delivery_date=card.delivery_date, quantity= card.quantity,
@@ -411,7 +421,8 @@ class OrderListWindow(QDialog, Ui_Dialog):
 
         for card in self.cards:
             card.clicked.connect(partial(self.card_clicked, card))
-            card.doubleClicked.connect(partial(self.card_double_clicked, card))
+            if self.user_role == "Администратор":
+                card.doubleClicked.connect(partial(self.card_double_clicked, card))
             self.verticalLayout_12.addWidget(card)
 
     def connect_signals(self):
@@ -426,6 +437,8 @@ class OrderListWindow(QDialog, Ui_Dialog):
 
     def add_order(self):
         dlg2 = AddOrderWindow(self.db)
+        dlg2.setWindowIcon(QIcon("res/icons/Icon.JPG"))
+        dlg2.setWindowTitle("Добавление заказа")
         dlg2.connect_signals()
 
         res = dlg2.exec()
