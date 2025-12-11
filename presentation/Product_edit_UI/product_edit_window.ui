@@ -1,0 +1,502 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>windowTitle</class>
+ <widget class="QDialog" name="windowTitle">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>542</width>
+    <height>737</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout_2">
+   <item row="24" column="0">
+    <widget class="QLabel" name="label_12">
+     <property name="font">
+      <font>
+       <family>Times New Roman</family>
+       <pointsize>11</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Скидка (%):</string>
+     </property>
+    </widget>
+   </item>
+   <item row="13" column="0">
+    <widget class="QTextEdit" name="description_input">
+     <property name="font">
+      <font>
+       <family>Times New Roman</family>
+       <pointsize>10</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">#description_input {
+    border: 1px solid black;
+}
+
+#description_input:focus {
+    border-color: #00FA9A;
+}</string>
+     </property>
+    </widget>
+   </item>
+   <item row="14" column="0">
+    <widget class="QLabel" name="label_7">
+     <property name="font">
+      <font>
+       <family>Times New Roman</family>
+       <pointsize>11</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Производитель:</string>
+     </property>
+    </widget>
+   </item>
+   <item row="25" column="0">
+    <widget class="QSpinBox" name="discount_input">
+     <property name="font">
+      <font>
+       <family>Times New Roman</family>
+       <pointsize>10</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">#discount_input {
+    border: 1px solid black;
+}
+
+#discount_input:focus {
+    border-color: #00FA9A;
+}</string>
+     </property>
+     <property name="maximum">
+      <number>100</number>
+     </property>
+    </widget>
+   </item>
+   <item row="4" column="0">
+    <widget class="QLabel" name="photo">
+     <property name="maximumSize">
+      <size>
+       <width>70</width>
+       <height>70</height>
+      </size>
+     </property>
+     <property name="layoutDirection">
+      <enum>Qt::LayoutDirection::LeftToRight</enum>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="pixmap">
+      <pixmap>../import/picture.png</pixmap>
+     </property>
+     <property name="scaledContents">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item row="8" column="0">
+    <widget class="QLabel" name="label_4">
+     <property name="font">
+      <font>
+       <family>Times New Roman</family>
+       <pointsize>11</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Наименование:</string>
+     </property>
+    </widget>
+   </item>
+   <item row="9" column="0">
+    <widget class="QLineEdit" name="name_input">
+     <property name="font">
+      <font>
+       <family>Times New Roman</family>
+       <pointsize>10</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">#name_input {
+    border: 1px solid black;
+}
+
+#name_input:focus {
+    border-color: #00FA9A;
+}</string>
+     </property>
+     <property name="placeholderText">
+      <string/>
+     </property>
+    </widget>
+   </item>
+   <item row="28" column="0">
+    <widget class="QPushButton" name="cancel_button">
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>20</height>
+      </size>
+     </property>
+     <property name="font">
+      <font>
+       <family>Times New Roman</family>
+       <pointsize>11</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">#cancel_button {
+    background-color: #7FFF00;
+    border: 1px solid black;
+}
+
+#cancel_button:hover {
+    background-color: #00FA9A;
+}</string>
+     </property>
+     <property name="text">
+      <string>Отмена</string>
+     </property>
+    </widget>
+   </item>
+   <item row="19" column="0">
+    <widget class="QDoubleSpinBox" name="price_input">
+     <property name="font">
+      <font>
+       <family>Times New Roman</family>
+       <pointsize>10</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">#price_input {
+    border: 1px solid black;
+}
+
+#price_input:focus {
+    border-color: #00FA9A;
+}</string>
+     </property>
+     <property name="minimum">
+      <double>0.000000000000000</double>
+     </property>
+     <property name="maximum">
+      <double>100000000000000004764729344.000000000000000</double>
+     </property>
+    </widget>
+   </item>
+   <item row="23" column="0">
+    <widget class="QSpinBox" name="quantity_input">
+     <property name="font">
+      <font>
+       <family>Times New Roman</family>
+       <pointsize>10</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">#quantity_input {
+    border: 1px solid black;
+}
+
+#quantity_input:focus {
+    border-color: #00FA9A;
+}</string>
+     </property>
+     <property name="suffix">
+      <string/>
+     </property>
+     <property name="maximum">
+      <number>1000000000</number>
+     </property>
+    </widget>
+   </item>
+   <item row="10" column="0">
+    <widget class="QLabel" name="label_5">
+     <property name="font">
+      <font>
+       <family>Times New Roman</family>
+       <pointsize>11</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Категория:</string>
+     </property>
+    </widget>
+   </item>
+   <item row="26" column="0">
+    <widget class="QWidget" name="widget" native="true"/>
+   </item>
+   <item row="21" column="0">
+    <widget class="QLineEdit" name="metric_input">
+     <property name="font">
+      <font>
+       <family>Times New Roman</family>
+       <pointsize>10</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">#metric_input {
+    border: 1px solid black;
+}
+
+#metric_input:focus {
+    border-color: #00FA9A;
+}</string>
+     </property>
+    </widget>
+   </item>
+   <item row="27" column="0">
+    <widget class="QPushButton" name="save_button">
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>20</height>
+      </size>
+     </property>
+     <property name="font">
+      <font>
+       <family>Times New Roman</family>
+       <pointsize>11</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">#save_button {
+    background-color: #7FFF00;
+    border: 1px solid black;
+}
+
+#save_button:hover {
+    background-color: #00FA9A;
+}</string>
+     </property>
+     <property name="text">
+      <string>Сохранить</string>
+     </property>
+    </widget>
+   </item>
+   <item row="17" column="0">
+    <widget class="QLineEdit" name="provider_input">
+     <property name="font">
+      <font>
+       <family>Times New Roman</family>
+       <pointsize>10</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">#provider_input {
+    border: 1px solid black;
+}
+
+#provider_input:focus {
+    border-color: #00FA9A;
+}</string>
+     </property>
+    </widget>
+   </item>
+   <item row="12" column="0">
+    <widget class="QLabel" name="label_6">
+     <property name="font">
+      <font>
+       <family>Times New Roman</family>
+       <pointsize>11</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Описание:</string>
+     </property>
+    </widget>
+   </item>
+   <item row="7" column="0">
+    <widget class="QPushButton" name="download_photo">
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>20</height>
+      </size>
+     </property>
+     <property name="font">
+      <font>
+       <family>Times New Roman</family>
+       <pointsize>11</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">#download_photo {
+    background-color: #7FFF00;
+    border: 1px solid black;
+}
+
+#download_photo:hover {
+    background-color: #00FA9A;
+}</string>
+     </property>
+     <property name="text">
+      <string>Загрузить фото</string>
+     </property>
+    </widget>
+   </item>
+   <item row="3" column="0">
+    <widget class="QLabel" name="label">
+     <property name="font">
+      <font>
+       <family>Times New Roman</family>
+       <pointsize>11</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Фото:</string>
+     </property>
+    </widget>
+   </item>
+   <item row="20" column="0">
+    <widget class="QLabel" name="label_10">
+     <property name="font">
+      <font>
+       <family>Times New Roman</family>
+       <pointsize>11</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Ед. измерения:</string>
+     </property>
+    </widget>
+   </item>
+   <item row="15" column="0">
+    <widget class="QComboBox" name="maker_input">
+     <property name="font">
+      <font>
+       <family>Times New Roman</family>
+       <pointsize>10</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">#maker_input {
+    border: 1px solid black;
+}
+
+#maker_input:hover {
+    border-color: #00FA9A;
+}</string>
+     </property>
+     <item>
+      <property name="text">
+       <string>Производитель не выбран</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Kari</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Marco Tozzi</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Рос</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Rieker</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Alessio Nesca</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>CROSBY</string>
+      </property>
+     </item>
+    </widget>
+   </item>
+   <item row="18" column="0">
+    <widget class="QLabel" name="label_9">
+     <property name="font">
+      <font>
+       <family>Times New Roman</family>
+       <pointsize>11</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Цена</string>
+     </property>
+    </widget>
+   </item>
+   <item row="11" column="0">
+    <widget class="QComboBox" name="category_input">
+     <property name="font">
+      <font>
+       <family>Times New Roman</family>
+       <pointsize>10</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">#category_input {
+    border: 1px solid black;
+}
+
+#category_input:hover {
+    border-color: #00FA9A;
+}</string>
+     </property>
+     <item>
+      <property name="text">
+       <string>Категория не выбрана</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Женская обувь</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Мужская обувь</string>
+      </property>
+     </item>
+    </widget>
+   </item>
+   <item row="16" column="0">
+    <widget class="QLabel" name="label_8">
+     <property name="font">
+      <font>
+       <family>Times New Roman</family>
+       <pointsize>11</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Поставщик:</string>
+     </property>
+    </widget>
+   </item>
+   <item row="22" column="0">
+    <widget class="QLabel" name="label_11">
+     <property name="font">
+      <font>
+       <family>Times New Roman</family>
+       <pointsize>11</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Количество:</string>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
