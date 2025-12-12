@@ -34,6 +34,12 @@ class Ui_List_of_products(object):
         self.horizontalLayout_7 = QtWidgets.QHBoxLayout()
         self.horizontalLayout_7.setObjectName("horizontalLayout_7")
         self.catalog_label = QtWidgets.QLabel(parent=self.verticalLayoutWidget)
+
+        font = QtGui.QFont()
+        font.setFamily("Times New Roman")
+        font.setPointSize(20)
+        self.catalog_label.setFont(font)
+
         self.catalog_label.setObjectName("catalog_label")
         self.horizontalLayout_7.addWidget(self.catalog_label)
         spacerItem = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Policy.Expanding,

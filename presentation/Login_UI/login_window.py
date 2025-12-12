@@ -25,6 +25,7 @@ class Ui_Login(object):
         self.label.setObjectName("label")
         self.label_2 = QtWidgets.QLabel(parent=self.centralwidget)
         self.label_2.setGeometry(QtCore.QRect(200, 180, 61, 31))
+        self.label_2.setMaximumSize(100, 100)
         font = QtGui.QFont()
         font.setFamily("Times New Roman")
         font.setPointSize(20)

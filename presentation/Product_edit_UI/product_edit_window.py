@@ -219,7 +219,7 @@ class Ui_windowTitle(object):
         self.label = QtWidgets.QLabel(parent=windowTitle)
         font = QtGui.QFont()
         font.setFamily("Times New Roman")
-        font.setPointSize(11)
+        font.setPointSize(14)
         self.label.setFont(font)
         self.label.setObjectName("label")
         self.gridLayout_2.addWidget(self.label, 3, 0, 1, 1)
@@ -304,7 +304,7 @@ class Ui_windowTitle(object):
         self.save_button.setText(_translate("windowTitle", "Сохранить"))
         self.label_6.setText(_translate("windowTitle", "Описание:"))
         self.download_photo.setText(_translate("windowTitle", "Загрузить фото"))
-        self.label.setText(_translate("windowTitle", "Фото:"))
+        self.label.setText(_translate("windowTitle", "Редактирование заказа"))
         self.label_10.setText(_translate("windowTitle", "Ед. измерения:"))
         self.maker_input.setItemText(0, _translate("windowTitle", "Производитель не выбран"))
         self.maker_input.setItemText(1, _translate("windowTitle", "Kari"))
@@ -326,6 +326,7 @@ class product_edit_window(QDialog, Ui_windowTitle):
         super().__init__()
         self.setupUi(self)
         self.update_list = update_list
+        self.label.setText("Редактирование заказа")
 
 
     def setData(
@@ -446,6 +447,7 @@ class product_add_window(QDialog, Ui_windowTitle):
 
         self.image_path = "picture.png"
         self.old_photo_path = self.image_path
+        self.label.setText("Добавление товара")
 
         self.photo.setPixmap(QtGui.QPixmap(f"res/images/{os.path.basename(self.image_path)}"))
 

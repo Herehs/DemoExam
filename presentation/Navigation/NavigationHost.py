@@ -1,18 +1,19 @@
 import random
-import re
 from functools import partial
+from getpass import fallback_getpass
 
-from PyQt6.QtCore import QDate, Qt
+from PyQt6.QtCore import QDate
 from PyQt6.QtGui import QIcon
-from PyQt6.QtWidgets import QMainWindow, QStackedWidget, QDialog, QListView, QLabel
+from PyQt6.QtWidgets import QMainWindow, QStackedWidget, QDialog, QLabel, QMessageBox
+from PyQt6.uic.properties import QtGui
 
 from presentation.Edit_order_UI.order_edit_window import Ui_order_edit
 from presentation.Login_UI.login_window import Ui_Login
 from presentation.Order_list_UI.order_data import OrderDataWidget
 from presentation.Order_list_UI.order_list_window import Ui_Dialog
+from presentation.Product_edit_UI.product_edit_window import product_edit_window, product_add_window
 from presentation.Product_list_UI.products import Ui_List_of_products
 from presentation.Product_list_UI.widget import ProductCardUI
-from presentation.Product_edit_UI.product_edit_window import product_edit_window, product_add_window
 
 
 class LoginWindow(QMainWindow, Ui_Login):
@@ -22,7 +23,6 @@ class LoginWindow(QMainWindow, Ui_Login):
         self.db = db
         self.setupUi(self)
         self.connect_signals()
-        self.label = QLabel(f"<span style=' color: #FF0000;'>Неверный логин или пароль</span>")
 
     def connect_signals(self):
         self.login_button.clicked.connect(self.handle_login)
@@ -52,13 +52,13 @@ class LoginWindow(QMainWindow, Ui_Login):
             if result:
                 user_id, user_role, full_name, user_role = result[0]
                 print(f"Аутентификация успешна: ID={user_id}, Роль={user_role}")
-                self.label.hide()
-                self.verticalLayout_3.removeWidget(self.label)
                 return True, full_name, user_role
             else:
 
-                self.verticalLayout_3.insertWidget(0, self.label)
-                self.label.show()
+                QMessageBox.warning(self, "Ошибка", "Неверный логин или пароль.")
+                self.login_input.clear()
+                self.password_input.clear()
+
                 print("Ошибка: неверный логин или пароль.")
                 return False, None, None
 
@@ -445,6 +445,13 @@ class OrderListWindow(QDialog, Ui_Dialog):
         dlg2 = AddOrderWindow(self.db)
         dlg2.setWindowIcon(QIcon("res/icons/Icon.JPG"))
         dlg2.setWindowTitle("Добавление заказа")
+
+        font = QtGui.QFont()
+        font.setFamily("Times New Roman")
+        font.setPointSize(14)
+        dlg2.label.setFont(font)
+
+        dlg2.label.adjustSize("Добавление заказа")
         dlg2.connect_signals()
 
         res = dlg2.exec()
@@ -475,9 +482,29 @@ class AddOrderWindow(QDialog, Ui_order_edit):
 
 
     def connect_signals(self):
-        self.save_button.clicked.connect(self.save_to_db)
-        self.save_button.clicked.connect(self.accept)
+        self.save_button.clicked.connect(self.data_validation)
         self.cancel_button.clicked.connect(self.close)
+
+    def data_validation(self):
+        order_date = self.date_order.date()
+        delivery_date = self.delivery_date.date()
+        quantity = self.count_input.text()
+        print(quantity)# Количество товара
+        check = True
+
+        if(int(quantity) < 0):
+            QMessageBox.warning(self, "Ошибка", "Количество меньше нуля.")
+            check = False
+        elif order_date > delivery_date:
+            QMessageBox.warning(self, "Ошибка", "Дата доставки меньше даты заказа.")
+            check = False
+
+
+        if check:
+            self.save_to_db()
+            self.accept()
+
+
 
     def save_to_db(self):
 
@@ -630,6 +657,7 @@ class EditOrderWindow(AddOrderWindow):
         self.user_id = user_id
 
         print(address)
+        self.window_name_label.setText("Редактирование заказа")
         self.articul_input.setText(f"{self.id}")
         self.status_input.setCurrentText(self.status)
         self.adres_input.setCurrentText(self.address)
@@ -721,11 +749,11 @@ class WindowManager(QMainWindow):
 
         if name == "LoginWindow":
             self.setFixedSize(452, 507)
-            self.setWindowTitle("Авторизация")
+            self.setWindowTitle("Вход")
 
         elif name == "MainWindow":
             self.setFixedSize(1123, 645)
-            self.setWindowTitle("Список товаров")
+            self.setWindowTitle("Каталог")
 
 
         # Переключение окна

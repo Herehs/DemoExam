@@ -17,6 +17,17 @@ class Ui_order_edit(object):
         self.gridLayout_2.setObjectName("gridLayout_2")
         self.verticalLayout = QtWidgets.QVBoxLayout()
         self.verticalLayout.setObjectName("verticalLayout")
+
+        self.window_name_label = QtWidgets.QLabel()
+        self.window_name_label.setText("Добавление заказа")
+        font = QtGui.QFont()
+        font.setFamily("Times New Roman")
+        font.setPointSize(14)
+        self.window_name_label.setFont(font)
+
+        self.verticalLayout.addWidget(self.window_name_label)
+
+
         self.gridLayout = QtWidgets.QGridLayout()
         self.gridLayout.setObjectName("gridLayout")
         self.date_order = QtWidgets.QDateEdit(parent=order_edit)

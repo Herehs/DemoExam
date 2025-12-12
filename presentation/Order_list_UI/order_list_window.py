@@ -41,6 +41,17 @@ class Ui_Dialog(object):
         self.order_button_back.setObjectName("order_button_back")
         self.horizontalLayout.addWidget(self.order_button_back)
         spacerItem = QtWidgets.QSpacerItem(268, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
+
+        self.window_name_label = QtWidgets.QLabel()
+        self.window_name_label.setText("Заказы")
+        font = QtGui.QFont()
+        font.setFamily("Times New Roman")
+        font.setPointSize(14)
+        self.window_name_label.setFont(font)
+
+        self.horizontalLayout.addWidget(self.window_name_label)
+
+
         self.horizontalLayout.addItem(spacerItem)
         self.order_button_add = QtWidgets.QPushButton(parent=Dialog)
         font = QtGui.QFont()
