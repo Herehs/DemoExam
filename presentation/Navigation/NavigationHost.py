@@ -1,11 +1,12 @@
 import random
 from functools import partial
-from getpass import fallback_getpass
 
 from PyQt6.QtCore import QDate
-from PyQt6.QtGui import QIcon
+
 from PyQt6.QtWidgets import QMainWindow, QStackedWidget, QDialog, QLabel, QMessageBox
-from PyQt6.uic.properties import QtGui
+from PyQt6.QtGui import QFont
+
+from PyQt6.QtGui import QIcon
 
 from presentation.Edit_order_UI.order_edit_window import Ui_order_edit
 from presentation.Login_UI.login_window import Ui_Login
@@ -55,7 +56,7 @@ class LoginWindow(QMainWindow, Ui_Login):
                 return True, full_name, user_role
             else:
 
-                QMessageBox.warning(self, "Ошибка", "Неверный логин или пароль.")
+                QMessageBox.critical(self, "Ошибка", "Неверный логин или пароль.")
                 self.login_input.clear()
                 self.password_input.clear()
 
@@ -165,12 +166,27 @@ class List_of_products_screen_UI(QMainWindow, Ui_List_of_products):
     # ----- ОБРАБОТКА УДАЛЕНИЯ ТОВАРА -----
     def delete_product(self):
         try:
-            self.cards.remove(self.selected_card)
-            self.db.execute_query("DELETE FROM Products WHERE product_id = %s", [self.selected_card.id], fetch=False)
-            self.refresh_cards()
+            msg = QMessageBox.question(self, "Удаление товара", "Вы действительно хотите удалить товар?",
+                                       QMessageBox.StandardButton.Yes | QMessageBox.StandardButton.No,  QMessageBox.StandardButton.No)
+            if msg != QMessageBox.StandardButton.Yes:
+                return
+            if not self.is_product_in_order():
+                self.cards.remove(self.selected_card)
+                self.db.execute_query("DELETE FROM Products WHERE product_id = %s", [self.selected_card.id], fetch=False)
+                self.refresh_cards()
+            else:
+                QMessageBox.critical(self, "Удаление заказа", "Продукт находится в заказе")
+
         except Exception as e:
             print(f"Ошибка удаления: {e}")
             return
+
+    def is_product_in_order(self):
+        result = self.db.execute_query("SELECT * FROM orders AS o WHERE o.product_id = %s", [self.selected_card.id], fetch=True)
+        if result:
+            return True
+        else:
+            return False
 
     # ----- ОБРАБОТКА ДОБАВЛЕНИЯ ТОВАРА -----
     def add_product(self):
@@ -437,21 +453,28 @@ class OrderListWindow(QDialog, Ui_Dialog):
         self.order_button_remove.clicked.connect(self.remove_order)
 
     def remove_order(self):
-        self.cards.remove(self.selected_card)
-        self.db.execute_query("DELETE FROM orders WHERE order_id = %s", [self.selected_card.id], fetch=False)
-        self.refreshOrders()
+
+        msg = QMessageBox.question(self, "Удаление заказа", "Вы действительно хотите удалить заказ?",
+                                   QMessageBox.StandardButton.Yes | QMessageBox.StandardButton.No,
+                                   QMessageBox.StandardButton.No)
+        if msg == QMessageBox.StandardButton.Yes:
+            self.cards.remove(self.selected_card)
+            self.db.execute_query("DELETE FROM orders WHERE order_id = %s", [self.selected_card.id], fetch=False)
+            self.refreshOrders()
+        else:
+            return
+
 
     def add_order(self):
         dlg2 = AddOrderWindow(self.db)
         dlg2.setWindowIcon(QIcon("res/icons/Icon.JPG"))
         dlg2.setWindowTitle("Добавление заказа")
 
-        font = QtGui.QFont()
+        font = QFont()
         font.setFamily("Times New Roman")
         font.setPointSize(14)
         dlg2.label.setFont(font)
 
-        dlg2.label.adjustSize("Добавление заказа")
         dlg2.connect_signals()
 
         res = dlg2.exec()
@@ -493,10 +516,10 @@ class AddOrderWindow(QDialog, Ui_order_edit):
         check = True
 
         if(int(quantity) < 0):
-            QMessageBox.warning(self, "Ошибка", "Количество меньше нуля.")
+            QMessageBox.critical(self, "Ошибка", "Количество меньше нуля.")
             check = False
         elif order_date > delivery_date:
-            QMessageBox.warning(self, "Ошибка", "Дата доставки меньше даты заказа.")
+            QMessageBox.critical(self, "Ошибка", "Дата доставки меньше даты заказа.")
             check = False
 
 

@@ -6,12 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="89662cca-3035-4b44-9179-e45e77e51b53" name="Changes" comment="добавлено оповещение о неправильном логине или пароле!!!">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/presentation/Edit_order_UI/order_edit_window.py" beforeDir="false" afterPath="$PROJECT_DIR$/presentation/Edit_order_UI/order_edit_window.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/presentation/Login_UI/login_window.py" beforeDir="false" afterPath="$PROJECT_DIR$/presentation/Login_UI/login_window.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/presentation/Navigation/NavigationHost.py" beforeDir="false" afterPath="$PROJECT_DIR$/presentation/Navigation/NavigationHost.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/presentation/Order_list_UI/order_list_window.py" beforeDir="false" afterPath="$PROJECT_DIR$/presentation/Order_list_UI/order_list_window.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/presentation/Product_edit_UI/product_edit_window.py" beforeDir="false" afterPath="$PROJECT_DIR$/presentation/Product_edit_UI/product_edit_window.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/presentation/Product_list_UI/products.py" beforeDir="false" afterPath="$PROJECT_DIR$/presentation/Product_list_UI/products.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,28 +61,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;Python.database.executor&quot;: &quot;Run&quot;,
-    &quot;Python.login_window.executor&quot;: &quot;Run&quot;,
-    &quot;Python.main.executor&quot;: &quot;Run&quot;,
-    &quot;Python.order_data.executor&quot;: &quot;Run&quot;,
-    &quot;Python.order_edit_window.executor&quot;: &quot;Run&quot;,
-    &quot;Python.order_list_window.executor&quot;: &quot;Run&quot;,
-    &quot;Python.products.executor&quot;: &quot;Run&quot;,
-    &quot;Python.products3.executor&quot;: &quot;Run&quot;,
-    &quot;Python.res.executor&quot;: &quot;Run&quot;,
-    &quot;Python.widget.executor&quot;: &quot;Run&quot;,
-    &quot;Python.widget2.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/me/PycharmProjects/DemoExam/readme&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "Python.database.executor": "Run",
+    "Python.login_window.executor": "Run",
+    "Python.main.executor": "Run",
+    "Python.order_data.executor": "Run",
+    "Python.order_edit_window.executor": "Run",
+    "Python.order_list_window.executor": "Run",
+    "Python.products.executor": "Run",
+    "Python.products3.executor": "Run",
+    "Python.res.executor": "Run",
+    "Python.widget.executor": "Run",
+    "Python.widget2.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "/home/me/PycharmProjects/DemoExam/readme",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/readme" />
